@@ -12,5 +12,5 @@ Packages that it has:
 - rtShell
 - NekoPresence
 
-### i found a issue with the decomp????
+### i found a issue with the decomp!!!!!
 if you find a issue with the decomp please make a issue on the repo!
