@@ -1,23 +1,23 @@
-function send_data(arg0)
+function send_data(dta)
 {
     var _buff = buffer_create(12, buffer_grow, 1)
     buffer_seek(_buff, buffer_seek_start, 0)
-    var q = json_stringify(arg0, true)
+    var q = json_stringify(dta, true)
     buffer_write(_buff, buffer_string, q)
     self.network_send_packetServ(_buff, buffer_tell(_buff))
     buffer_delete(_buff)
 }
 
-function instance_create_online(arg0, arg1, arg2, arg3, arg4 = {})
+function instance_create_online(_x, _y, _depth, _obj, _vars = {})
 {
     var struct = {}
-    struct.x = arg0
-    struct.y = arg1
-    struct.depth = arg2
-    struct.obj = arg3
+    struct.x = _x
+    struct.y = _y
+    struct.depth = _depth
+    struct.obj = _obj
     struct.room = room
     struct.onlineID = onlineID
     struct.type = asyncTypes.existingPlayers
-    struct.vars = arg4
+    struct.vars = _vars
     send_data(struct)
 }

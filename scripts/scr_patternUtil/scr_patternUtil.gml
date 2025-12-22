@@ -2,12 +2,13 @@ global.patternColors = shader_get_sampler_index(shd_pattern, "tex_setColors")
 global.patternUVs = shader_get_uniform(shd_pattern, "tex_colorsUV")
 global.patternTexel = shader_get_uniform(shd_pattern, "tex_height")
 
-function pattern_draw(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9 = global.patternSpr, arg10 = spr_playerPatColors, arg11 = obj_player.spr_palette, arg12 = obj_player.palIndex)
+function pattern_draw(_sprite, _index, _x, _y, _xscale, _yscale, _rot, _col, _alpha, _pattern = global.patternSpr, _patternColors = spr_playerPatColors, plrpal = obj_player.spr_palette, plrpalindex = obj_player.palIndex)
 {
-    if (arg9 != -1)
+    if _pattern != -1
     {
-        var _surf = surface_create(sprite_get_width(arg0), sprite_get_height(arg0))
-        surface_set_target(_surf)
+        var _surf = surface_create(sprite_get_width(_sprite), sprite_get_height(_sprite))
+		
+		surface_set_target(_surf)
         draw_clear_alpha(c_black, 0)
         shader_reset()
         shader_set(shd_pattern)
@@ -17,15 +18,16 @@ function pattern_draw(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9
         texture_set_stage(global.patternColors, q)
         shader_set_uniform_f(global.patternUVs, p[0], p[1], p[2], p[3])
         shader_set_uniform_f(global.patternTexel, s)
-        draw_sprite_ext(arg0, arg1, sprite_get_xoffset(arg0), sprite_get_yoffset(arg0), 1, 1, arg6 * arg4, c_white, 1)
+        draw_sprite_ext(_sprite, _index, sprite_get_xoffset(_sprite), sprite_get_yoffset(_sprite), 1, 1, _rot * _xscale, c_white, 1)
         shader_reset()
+		
         gpu_set_blendmode(bm_min)
-        pal_swap_set(arg11, arg12, false)
-        draw_sprite_tiled_ext(arg9, 0, 0, 0, arg4, 1, c_white, 1)
+        pal_swap_set(plrpal, plrpalindex, false)
+        draw_sprite_tiled_ext(_pattern, 0, 0, 0, _xscale, 1, c_white, 1) // pattern
         shader_reset()
         gpu_set_blendmode(bm_normal)
         surface_reset_target()
-        draw_surface_ext(_surf, arg2 - (sprite_get_xoffset(arg0) * arg4), arg3 - (sprite_get_yoffset(arg0) * arg5), arg4, arg5, 0, arg7, arg8)
+        draw_surface_ext(_surf, _x - (sprite_get_xoffset(_sprite) * _xscale), _y - (sprite_get_yoffset(_sprite) * _yscale), _xscale, _yscale, 0, _col, _alpha)
         surface_free(_surf)
     }
 }

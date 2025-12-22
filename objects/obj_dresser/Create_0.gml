@@ -5,17 +5,16 @@ textAlpha = 0
 indicatorAlpha = 0
 indicator = false
 
-addPalette = function(arg0, arg1, arg2, arg3 = true, arg4 = spr_playerPat_threads)
+addPalette = function(_pName, _desc, _index, _unlocked = true, patspr = spr_playerPat_threads)
 {
     var q = 
     {
-        pName: arg0,
-        desc: arg1,
-        index: arg2,
-        sprite: arg4
+        pName: _pName,
+        desc: _desc,
+        index: _index,
+        sprite: patspr
     }
-    
-    if (arg3)
+    if _unlocked
     {
         array_push(palettes, q)
         return q;
@@ -28,13 +27,11 @@ addPalette("Red Wears", "Placeholder", 2, true)
 addPalette("Blue Wears", "Placeholder", 3, true)
 addPalette("Coffee Wears", "Placeholder", 4, true)
 ini_close()
-
 for (var i = 0; i < array_length(palettes); i++)
 {
     var q = palettes[i].index
     var p = palettes[i].sprite
-    
-    if (q == obj_player.palIndex && p == global.patternSpr)
+    if q == obj_player.palIndex && p == global.patternSpr
     {
         selected = i
         break

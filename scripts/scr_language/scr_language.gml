@@ -8,14 +8,11 @@ function lang_init()
     var _textFile = string("{0}/{1}/text.txt", _generalPath, global.language)
     var _json = json_parse(loadString(_textFile))
     var _jsonNames = variable_struct_get_names(_json)
-    
     for (var i = 0; i < array_length(_jsonNames); i++)
         ds_map_add(global.langMapWord, _jsonNames[i], variable_struct_get(_json, _jsonNames[i]))
-    
     _textFile = string("{0}/{1}/art.txt", _generalPath, global.language)
     _json = json_parse(loadString(_textFile))
     _jsonNames = variable_struct_get_names(_json)
-    
     for (var i = 0; i < array_length(_jsonNames); i++)
     {
         var q = variable_struct_get(_json, _jsonNames[i])

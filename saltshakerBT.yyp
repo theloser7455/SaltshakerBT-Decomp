@@ -800,7 +800,7 @@
   "templateType":null,
   "TextureGroups":[
     {"$GMTextureGroup":"","%Name":"default","autocrop":true,"border":2,"compressFormat":"png","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"default","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
-    {"$GMTextureGroup":"","%Name":"monolith_group","autocrop":true,"border":2,"compressFormat":"qoi","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"monolith_group","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
-    {"$GMTextureGroup":"","%Name":"player_group","autocrop":true,"border":2,"compressFormat":"qoi","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"player_group","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMTextureGroup":"","%Name":"Monolith_group","autocrop":true,"border":2,"compressFormat":"qoi","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Monolith_group","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMTextureGroup":"","%Name":"Player_group","autocrop":true,"border":2,"compressFormat":"qoi","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Player_group","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
   ],
 }

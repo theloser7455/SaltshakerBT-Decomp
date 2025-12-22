@@ -23,8 +23,8 @@
   },
   "spriteNoExport":true,
   "textureGroupId":{
-    "name":"monolith_group",
-    "path":"texturegroups/monolith_group",
+    "name":"Monolith_group",
+    "path":"texturegroups/Monolith_group",
   },
   "tileAnimationFrames":[],
   "tileAnimationSpeed":15.00015,

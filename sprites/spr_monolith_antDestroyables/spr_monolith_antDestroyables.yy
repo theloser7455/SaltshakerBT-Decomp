@@ -89,8 +89,8 @@
   "swatchColours":null,
   "swfPrecision":2.525,
   "textureGroupId":{
-    "name":"monolith_group",
-    "path":"texturegroups/monolith_group",
+    "name":"Monolith_group",
+    "path":"texturegroups/Monolith_group",
   },
   "type":0,
   "VTile":false,

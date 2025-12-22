@@ -2,15 +2,15 @@ dialogStuff = []
 currentDialog = 0
 active = false
 
-addDialog = function(arg0, arg1, arg2 = function()
+addDialog = function(_portrait, _text, _funcdialog = function()
 {
 })
 {
     var q = 
     {
-        portrait: arg0,
-        text: arg1,
-        func: arg2
+        portrait: _portrait,
+        text: _text,
+        func: _funcdialog
     }
     array_push(dialogStuff, q)
 }

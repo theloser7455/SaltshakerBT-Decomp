@@ -1,4 +1,3 @@
-
 #macro rps_type_standard 0
 #macro rps_type_html5_sprite 1
 #macro rps_type_html5_surface 2

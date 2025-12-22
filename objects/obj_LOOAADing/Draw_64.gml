@@ -5,11 +5,8 @@ draw_set_color(c_black)
 draw_rectangle(0, 0, 960, 540, false)
 draw_set_color(c_white)
 draw_set_alpha(1)
-
-if (fadeOut)
+if fadeOut
     blackAlpha += 0.05
-
-if (blackAlpha >= 1)
+if blackAlpha >= 1
     room_goto(initObject)
-
 draw_set_alpha(1)

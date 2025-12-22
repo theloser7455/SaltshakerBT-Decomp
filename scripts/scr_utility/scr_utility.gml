@@ -1,6 +1,6 @@
 function animation_end()
 {
-    return (image_index + (image_speed * sprite_get_speed(sprite_index))) >= image_number;
+    return image_index + image_speed * sprite_get_speed(sprite_index) >= image_number;
 }
 
 function shake_camera(shakeamount)
@@ -28,59 +28,58 @@ function scr_cutoff()
     {
         instance_create_depth(x + (_x * 32) + 32, y, -5, obj_cutoff, 
         {
-			image_angle: 180
-        })
-        instance_create_depth(x + (_x * 32), y + sprite_height, -5, obj_cutoff)
+            image_angle: 180
+        });
+        instance_create_depth(x + (_x * 32), y + sprite_height, -5, obj_cutoff);
     }
     
     for (var _y = 0; _y < abs(sprite_height / 32); _y++)
     {
         instance_create_depth(x + sprite_width, y + (_y * 32) + 32, -5, obj_cutoff, 
         {
-			image_angle: 90
-        })
+            image_angle: 90
+        });
         instance_create_depth(x, y + (_y * 32), -5, obj_cutoff, 
         {
-			image_angle: -90
-        })
+            image_angle: -90
+        });
     }
 }
 
-function add_saveVariable(_section, _key, _val, _ini = working_directory + "options.ini")
-{
-    var q = 
-    {
-        ini: _ini,
-        section: _section,
-        key: _key,
-        val: _val
-    }
-    if (!array_contains(obj_savesystem.saveVariables, string("{0}{1}", _section, _key)))
-        array_push(obj_savesystem.saveVariables, string("{0}{1}", _section, _key))
-    ds_map_set(obj_savesystem.saveVariablesList, string("{0}{1}", _section, _key), q)
+function add_saveVariable(_section, _key, _val, _ini = working_directory + "options.ini") {
+	var q = 
+	{
+		ini: _ini,
+		section: _section,
+		key: _key,
+		val: _val,
+	}
+	if !array_contains(obj_savesystem.saveVariables, $"{_section}{_key}")
+		array_push(obj_savesystem.saveVariables, $"{_section}{_key}")
+	obj_savesystem.saveVariablesList[? $"{_section}{_key}"] = q
 }
 
 function push_saveVariables()
 {
-    with obj_savesystem
-    {
-        if array_length(saveVariables) != 0
-        {
+	with obj_savesystem
+	{
+		if array_length(saveVariables) != 0
+		{
 			for (var i = 0; i < array_length(saveVariables); i++)
 			{
-			    var q = ds_map_find_value(saveVariablesList, saveVariables[i])
-			    ini_open(q.ini)
-			    if is_string(q.val)
-			        ini_write_string(q.section, q.key, q.val)
-			    else
-			        ini_write_real(q.section, q.key, q.val)
-			    ini_close()
+				var q = ds_map_find_value(saveVariablesList, saveVariables[i])
+				ini_open(q.ini)
+				if is_string(q.val)
+					ini_write_string(q.section, q.key, q.val)
+				else
+					ini_write_real(q.section, q.key, q.val)
+				ini_close()
 			}
 			ds_map_clear(saveVariablesList)
-			saveiconTimer = 10 * array_length(saveVariables)
+			saveiconTimer = (10 * array_length(saveVariables))
 			saveVariables = []
-        }
-    }
+		}
+	}
 }
 
 function create_smalltext(_textsm, _x = x, _y = y) {

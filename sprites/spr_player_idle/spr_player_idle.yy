@@ -121,8 +121,8 @@
   "swatchColours":null,
   "swfPrecision":2.525,
   "textureGroupId":{
-    "name":"player_group",
-    "path":"texturegroups/player_group",
+    "name":"Player_group",
+    "path":"texturegroups/Player_group",
   },
   "type":0,
   "VTile":false,

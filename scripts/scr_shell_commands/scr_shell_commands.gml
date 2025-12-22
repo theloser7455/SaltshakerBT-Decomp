@@ -13,9 +13,9 @@ function meta_ranktest()
     };
 }
 
-function sh_ranktest(arg0)
+function sh_ranktest(args)
 {
-    switch (arg0[1])
+    switch (args[1])
     {
         case "D":
         default:
@@ -55,21 +55,18 @@ function meta_escape()
     };
 }
 
-function sh_escape(arg0)
+function sh_escape(args)
 {
-    arg0[2] = real(arg0[2])
-    arg0[3] = real(arg0[3])
-    
-    if (arg0[1] == "true")
+    args[2] = real(args[2])
+    args[3] = real(args[3])
+    if args[1] == "true"
         global.escape.active = true
-    else if (arg0[1] == "false")
+    else if args[1] == "false"
         global.escape.active = false
-    else if (!is_bool(arg0[1]))
+    else if !is_bool(args[1])
         global.escape.active = !global.escape.active
-    
-    global.escape.timer = (arg0[2] * 60 * 60) + (arg0[3] * 60)
-    
-    if (global.escape.active)
+    global.escape.timer = (args[2] * 60 * 60) + (args[3] * 60)
+    if global.escape.active
     {
         instance_create_depth(x, y, -4, obj_goodmourning)
         instance_create_depth(x, y, -300, obj_whiteflash)
@@ -87,14 +84,13 @@ function meta_goto_room()
     };
 }
 
-function sh_goto_room(arg0)
+function sh_goto_room(args)
 {
     with obj_player
     {
-        targetRoom = asset_get_index(arg0[1])
-        door = arg0[2]
+        targetRoom = asset_get_index(args[1])
+        door = args[2]
         hallway = false
-        
         with instance_create_depth(x, y, 0, obj_fadeout)
 			targetRoom = other.targetRoom
     }
@@ -110,13 +106,13 @@ function meta_toggle_collisions()
     };
 }
 
-function sh_toggle_collisions(arg0)
+function sh_toggle_collisions(args)
 {
-    if (arg0[1] == "true")
+    if args[1] == "true"
         global.showcollisions = true
-    else if (arg0[1] == "false")
+    else if args[1] == "false"
         global.showcollisions = false
-    else if (!is_bool(arg0[1]))
+    else if !is_bool(args[1])
         global.showcollisions = !global.showcollisions
 }
 
@@ -130,12 +126,12 @@ function meta_toggle_debug()
     };
 }
 
-function sh_toggle_debug(arg0)
+function sh_toggle_debug(args)
 {
-    if (arg0[1] == "true")
+    if args[1] == "true"
         global.debug = true
-    else if (arg0[1] == "false")
+    else if args[1] == "false"
         global.debug = false
-    else if (!is_bool(arg0[1]))
+    else if !is_bool(args[1])
         global.debug = !global.debug
 }
