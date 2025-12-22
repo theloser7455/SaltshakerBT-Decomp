@@ -1,7 +1,7 @@
 # SaltshakerBT-Decomp
 A actual "Decompile" of What's Shakin Bacon?
 
-GameMaker Version Used: ```2024.1400.1.926``` (GM Beta)
+GameMaker Beta Version Used: ```2024.1400.1.926```
 
 Packages that it has:
 - Gameframe
