@@ -2,7 +2,6 @@ depth = obj_player.depth + 5
 shake = approach(shake, 0, 1)
 fadeAlpha = approach(fadeAlpha, 1, 0.1)
 get_input()
-
 with obj_player
 {
     hsp = 0
@@ -15,22 +14,18 @@ with obj_player
     var ly = lengthdir_y(2, point)
     x = approach(x, targetx, abs(lx))
     y = approach(y, targety, abs(ly))
-    
     if animation_end()
         image_speed = 0
 }
-
 ranktimer = approach(ranktimer, 0, 1)
-
 switch cutscenePart
 {
     case 0:
-        if (fadeAlpha == 1)
+        if fadeAlpha == 1
         {
 			showRank = false
 			ranktimer = 300
 			cutscenePart++
-			
 			with obj_player
 			{
 			    x -= camera_get_view_x(view_camera[0])
@@ -38,14 +33,11 @@ switch cutscenePart
 			    x = floor(x)
 			    y = floor(y)
 			}
-			
 			room = rank_room
         }
-        
         break
-    
     case 1:
-        if (!showRank && ranktimer == 0)
+        if !showRank && ranktimer == 0
         {
 			showRank = true
 			rankIndex = 0
@@ -56,26 +48,21 @@ switch cutscenePart
         {
 			rankIndex += 0.5
 			rankIndex = clamp(rankIndex, 0, sprite_get_number(rankspr) - 1)
-			
 			if (rankIndex == (sprite_get_number(rankspr) - 1) && showRank)
 			    showRankText = true
-			
-			if (ranktimer == 0)
+			if ranktimer == 0
 			{
 			    cutscenePart++
 			    alarm[0] = 40
 			}
         }
-        
         break
-    
     case 2:
         break
 }
-
-if (canContinue)
+if canContinue
 {
-    if (key_jump2)
+    if key_jump2
     {
         with obj_player
         {

@@ -1,5 +1,4 @@
 var _saveroom = escape ? global.escaperoom : global.saveroom
-
 if ds_list_find_index(_saveroom, id) == -1
 {
     FMODevent_oneshot("event:/Sfx/General/Enemy/killenemy", x, y)

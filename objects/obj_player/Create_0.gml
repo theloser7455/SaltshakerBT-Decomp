@@ -3,7 +3,6 @@ depth = 0
 image_speed = 0.35
 scr_collision_init()
 grav = 0.5
-
 if !variable_global_exists("saveroom")
 {
     global.saveroom = ds_list_create()
@@ -78,6 +77,8 @@ enum states
 	enemymove,
 	enemyturn,
 	enemythrown,
+	//TV States
+	tvnormal,
 	expr,
 }
 spr_palette = spr_playerPal

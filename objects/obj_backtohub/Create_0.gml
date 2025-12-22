@@ -1,7 +1,6 @@
 start = false
 image_alpha = 1.1
 fakeVsp = 5
-
 with obj_player
 {
     hsp = 0

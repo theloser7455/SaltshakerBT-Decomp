@@ -50,9 +50,7 @@ if ds_map_exists(musicDetails, room)
     }
     func = _map.func
 }
-
 fmod_studio_event_instance_set_paused(escapeInst, isSecret)
-
 if musicInst != -4
     fmod_studio_event_instance_set_paused(musicInst, isSecret || FMODevent_isplaying(escapeInst))
 if ambienceInst != -4

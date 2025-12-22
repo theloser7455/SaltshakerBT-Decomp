@@ -1,4 +1,4 @@
-if (active)
+if active
 {
     for (var i = 0; i < points; i++)
     {

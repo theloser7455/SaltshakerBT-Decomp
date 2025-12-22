@@ -1,2 +1,2 @@
-if (other.i_frame <= 0)
+if other.i_frame <= 0
     hurt_player(self)

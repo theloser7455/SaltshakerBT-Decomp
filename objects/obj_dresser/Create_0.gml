@@ -4,7 +4,6 @@ selected = 0
 textAlpha = 0
 indicatorAlpha = 0
 indicator = false
-
 addPalette = function(_pName, _desc, _index, _unlocked = true, patspr = spr_playerPat_threads)
 {
     var q = 
@@ -20,7 +19,6 @@ addPalette = function(_pName, _desc, _index, _unlocked = true, patspr = spr_play
         return q;
     }
 }
-
 ini_open(global.saveFile)
 addPalette("Hotel Wears", "It's You! Tu!", 1, true)
 addPalette("Red Wears", "Placeholder", 2, true)

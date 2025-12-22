@@ -107,7 +107,6 @@ function playerSounds()
     {
         fmod_studio_event_instance_stop(soundsRoll, FMOD_STUDIO_STOP_MODE.IMMEDIATE)
     }
-    
     if state == states.groundpoundstart || state == states.groundpound
     {
         fmod_studio_event_instance_set_paused(soundsGroundpound, false)
@@ -120,7 +119,6 @@ function playerSounds()
     {
         fmod_studio_event_instance_stop(soundsGroundpound, FMOD_STUDIO_STOP_MODE.IMMEDIATE)
     }
-    
     if state == states.superjumpPrep
     {
         fmod_studio_event_instance_set_paused(soundsSuperjump, false)
@@ -132,7 +130,6 @@ function playerSounds()
     {
         fmod_studio_event_instance_stop(soundsSuperjump, FMOD_STUDIO_STOP_MODE.IMMEDIATE)
     }
-    
     if state == states.mach2 || state == states.mach3 || state == states.climbwall
     {
         fmod_studio_event_instance_set_paused(soundsMach, false)

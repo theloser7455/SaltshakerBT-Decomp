@@ -1,5 +1,4 @@
 var doorOBJ = asset_get_index(string("obj_door{0}", door))
-
 if instance_exists(doorOBJ)
 {
     if hallway == 2
@@ -26,20 +25,17 @@ if instance_exists(doorOBJ)
         y = doorOBJ.y - 14
     }
 }
-
 if place_meeting(x, y + 4, obj_ballofbeer) || place_meeting(x, y - 16, obj_ballofbeer)
 {
     hallway = false
     state = states.crouch
 }
-
 if place_meeting(x, y, obj_door) || place_meeting(x, y, obj_exitgate)
 {
     state = states.walkfront
     image_index = 0
     sprite_index = spr_player_walkfront
 }
-
 with obj_followplayer
 {
     ds_queue_clear(followqueue)
@@ -48,6 +44,5 @@ with obj_followplayer
     x = gx
     y = gy
 }
-
 roomstartX = x
 roomstartY = y

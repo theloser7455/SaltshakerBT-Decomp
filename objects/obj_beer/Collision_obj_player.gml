@@ -1,4 +1,4 @@
-if (other.state != states.surfing)
+if other.state != states.surfing
 {
     other.state = states.surfing
     other.sprite_index = spr_player_surfing

@@ -1,7 +1,6 @@
-if (global.escape.active == true)
+if global.escape.active == true
 {
     instance_destroy()
-    
     with obj_player
     {
         vsp = 0

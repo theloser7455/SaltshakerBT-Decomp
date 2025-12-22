@@ -1,4 +1,4 @@
-if (global.escape.active)
+if global.escape.active
 {
     var __val = super ? 20 : 10
     global.collect += __val

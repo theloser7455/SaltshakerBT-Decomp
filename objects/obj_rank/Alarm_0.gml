@@ -1,4 +1,4 @@
-if (textPos < array_length(text))
+if textPos < array_length(text)
 {
     FMODevent_oneshot("event:/Sfx/Player/punch", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     shake = 15

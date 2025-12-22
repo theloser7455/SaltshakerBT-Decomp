@@ -1,6 +1,5 @@
-if (!surface_exists(photoSurf))
+if !surface_exists(photoSurf)
     photoSurf = surface_create(200, 200)
-
 var _x = 0 + (surface_get_width(photoSurf) / 2)
 var _y = 0 + (surface_get_height(photoSurf) / 2)
 surface_set_target(photoSurf)

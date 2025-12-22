@@ -1,6 +1,5 @@
 target = obj_player
 image_speed = 0.35
-
 if (target.state == states.mach3)
 {
     x = target.x + (16 * image_xscale)

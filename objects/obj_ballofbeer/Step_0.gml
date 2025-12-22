@@ -15,7 +15,6 @@ with obj_player
         state = states.enterdoor
         FMODevent_oneshot("event:/Sfx/General/Level/Progression/downbeer", x, y)
     }
-    
     if (place_meeting(x, y - 10, other) && other.dir == -1 && (key_up || state == states.superjump) && state != states.enterdoor)
     {
         targetRoom = other.targetRoom

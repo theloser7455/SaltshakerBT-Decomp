@@ -6,7 +6,6 @@ with instance_place(x, y - 1, obj_player)
         hsp = 0
         movespeed = 0
         x = other.x + 16
-        
         if key_down && grounded
 			y = other.y + 1
     }

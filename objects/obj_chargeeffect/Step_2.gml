@@ -1,5 +1,4 @@
 depth = target.depth - 2
-
 if (target.state == states.mach3)
 {
     x = target.x + (16 * image_xscale)

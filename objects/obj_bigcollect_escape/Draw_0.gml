@@ -1,4 +1,4 @@
-if (super)
+if super
 {
     for (var i = 0; i < 16; i++)
     {
@@ -10,5 +10,4 @@ if (super)
         gpu_set_blendmode(bm_normal)
     }
 }
-
 draw_self()

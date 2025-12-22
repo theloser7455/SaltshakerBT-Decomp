@@ -3,8 +3,7 @@ cutscene = false
 image_speed = 0.067
 facing = sign(image_xscale)
 image_xscale = 1
-
-if (obj_player.door == "DOODLE")
+if obj_player.door == "DOODLE"
 {
     obj_player.x = x
     obj_player.y = y

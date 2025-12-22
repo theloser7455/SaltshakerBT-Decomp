@@ -17,7 +17,6 @@ draw_set_alpha(0.35)
 draw_set_color(c_black)
 var _width = 0
 var _height = 0
-
 for (var i = 0; i < array_length(devWindow); i++)
 {
     if (string_width(devWindow[i]) > _width)
@@ -25,12 +24,10 @@ for (var i = 0; i < array_length(devWindow); i++)
     
     _height += string_height(devWindow[i])
 }
-
 var _x = x
 var _y = y
 draw_set_alpha(1)
 draw_set_color(c_white)
-
 if global.debug
 {
     draw_set_font(font_dialogPlaceholder)
@@ -54,22 +51,18 @@ if global.debug
         array_push(_vars, string("HUB X: {0}", obj_player.backtohubX))
         array_push(_vars, string("HUB Y: {0}", obj_player.backtohubY))
     }
-    
     if instance_exists(obj_camera)
     {
         array_push(_vars, string("CAMERA X: {0}", obj_camera.camera.x))
         array_push(_vars, string("CAMERA Y: {0}", obj_camera.camera.y))
     }
-    
     array_push(_vars, string("FPS: {0}", fps))
     array_push(_vars, string("REAL FPS: {0}", fps_real))
-    
     if instance_exists(obj_server)
     {
         array_push(_vars, ds_list_size(obj_server.connections))
         array_push(_vars, instance_number(obj_onlinePlayer))
     }
-    
     for (var i = 0; i < array_length(_vars); i++)
         draw_text(32, 100 + (32 * i), _vars[i])
 }

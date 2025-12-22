@@ -1,49 +1,37 @@
 if key_jump2
     jumpBuffer = 15
-
 if key_slap2
     slapBuffer = 15
-
 if FMODevent_isplaying(soundsOk)
     FMODSet3dPos(soundsOk, x, y)
-
 if FMODevent_isplaying(soundsLaugh)
     FMODSet3dPos(soundsLaugh, x, y)
-
 var _insta = state == states.mach3 || state == states.machturn && sprite_index == spr_player_mach3turn || state == states.superjump || state == states.uppercut || state == states.groundpound || state == states.groundpoundstart || state == states.buzzsaw
 instakill = _insta
-
 if hitstun.is == false
 {
     if !instance_exists(obj_technicaldifficulty)
         global.combo.timer = approach(global.combo.timer, 0, 0.15)
-    
     if global.combo.previouscombo != global.combo.amt
     {
         global.combo.previouscombo = global.combo.amt
-        
         if global.combo.amt > 0 && global.combo.amt % 5 == 0
         {
 			instance_destroy(obj_comboTitle)
-			
 			with instance_create_depth(811, 350, obj_hud.depth, obj_comboTitle)
 			    image_index = floor(global.combo.amt / 5)
-			
 			FMODevent_oneshot("event:/Sfx/UI/Combo/comboup")
         }
     }
-    
     if global.combo.timer == 0 && global.combo.amt > 0
     {
         global.combo.savecombo = global.combo.amt
         global.combo.amt = 0
         global.combo.dropped = true
-        
         if room != rank_room
         {
 			FMODevent_oneshot("event:/Sfx/UI/Combo/comboend")
 			instance_destroy(obj_comboTitle)
-			
 			with instance_create_depth(811, 350, obj_hud.depth, obj_comboTitle)
 			{
 			    image_index = floor(global.combo.savecombo / 5)
@@ -51,41 +39,32 @@ if hitstun.is == false
 			}
         }
     }
-    
     scr_collision()
     scr_collide_destructibles()
     jumpBuffer = approach(jumpBuffer, 0, 1)
     slapBuffer = approach(slapBuffer, 0, 1)
-    
     if grounded
         coyote_time = 10
     else if vsp < 0
         coyote_time = 0
-    
     coyote_time--
-    
     if state != states.hurt
         i_frame = approach(i_frame, 0, 1)
-    
     if i_frame > 0 && state != states.hurt
         image_alpha = round(wave(0, 1, 0.1, 0))
     else
         image_alpha = 1
-    
     if state == states.walkfront
-        image_blend = make_colour_hsv(0, 0, (image_index / image_number) * c_red)
+        image_blend = make_colour_hsv(0, 0, (image_index / image_number) * 255)
     else
-        image_blend = make_colour_hsv(0, 0, c_red)
-    
+        image_blend = make_colour_hsv(0, 0, 255)
     if flash == true && alarm[0] <= 0
         alarm[0] = 5
-    
     if y < -500 || y > room_height + 500
     {
         if !instance_exists(obj_technicaldifficulty)
 			instance_create_depth(x, y, -100, obj_technicaldifficulty)
     }
-    
     switch state
     {
         case states.normal:
@@ -182,7 +161,6 @@ if hitstun.is == false
 			scr_player_skirow()
 			break
     }
-    
     if state == states.crouch || state == states.tumble || state == states.superjumpPrep
         mask_index = spr_crouchmask
     else
@@ -197,7 +175,6 @@ else
         x = hitstun.x + irandom_range(-5, 5)
         y = hitstun.y + irandom_range(-5, 5)
         hitstun.time--
-        
         if instance_exists(obj_fadeout)
         {
 			hitstun.time = 0

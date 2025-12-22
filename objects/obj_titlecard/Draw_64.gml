@@ -1,4 +1,4 @@
-if (scene == 1 || scene == 2)
+if scene == 1 || scene == 2
 {
     titlecardName.x = irandom_range(-1, 1)
     titlecardName.y = irandom_range(-1, 1)
@@ -7,10 +7,8 @@ if (scene == 1 || scene == 2)
     draw_sprite(titlecardSprite, titlecardName.index, titlecardName.x, titlecardName.y)
     draw_set_alpha(1)
 }
-
-if (!surface_exists(fadeSurface))
+if !surface_exists(fadeSurface)
     fadeSurface = surface_create(SCREEN_WIDTH, SCREEN_HEIGHT)
-
 surface_set_target(fadeSurface)
 draw_clear_alpha(c_black, 0)
 draw_set_color(c_black)

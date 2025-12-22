@@ -11,15 +11,13 @@ obj_player.state = -4
 showRank = false
 showRankText = false
 rankIndex = 0
-
 with obj_music
 {
     stop_music()
     
-    if (FMODevent_isplaying(escapeInst))
+    if FMODevent_isplaying(escapeInst)
         fmod_studio_event_instance_stop(escapeInst, FMOD_STUDIO_STOP_MODE.IMMEDIATE)
 }
-
 global.escape = 
 {
     active: false,
@@ -29,26 +27,20 @@ global.escape =
 FMODstopAll()
 music = FMODcreate_event("event:/Music/General/ranks")
 var _rankIndex = 0
-
 if global.collect >= global.Crank
     _rankIndex = 1
-
 if global.collect >= global.Brank
     _rankIndex = 2
-
 if global.collect >= global.Arank
     _rankIndex = 3
-
 if global.collect >= global.Srank
     _rankIndex = 4
-
 fmod_studio_event_instance_set_parameter_by_name(music, "state", _rankIndex)
 fmod_studio_event_instance_start(music)
 rankspr = spr_rankD
 ranktextSpr = lang_get_asset("spr_rankD_text")
 var _col = 0x785030
 var _col2 = 0x482911
-
 switch _rankIndex
 {
     case 0:
@@ -82,12 +74,11 @@ switch _rankIndex
         _col2 = 10392
         break
 }
-
 uniform1 = shader_get_uniform(shd_fullshade, "lightest")
 uniform2 = shader_get_uniform(shd_fullshade, "darkest")
 rankSurf = -4
-col = [color_get_red(_col) / c_red, color_get_green(_col) / c_red, color_get_blue(_col) / c_red]
-col2 = [color_get_red(_col2) / c_red, color_get_green(_col2) / c_red, color_get_blue(_col2) / c_red]
+col = [color_get_red(_col) / 255, color_get_green(_col) / 255, color_get_blue(_col) / 255]
+col2 = [color_get_red(_col2) / 255, color_get_green(_col2) / 255, color_get_blue(_col2) / 255]
 colorAlpha = 0
 ranktimer = 180
 shake = 0

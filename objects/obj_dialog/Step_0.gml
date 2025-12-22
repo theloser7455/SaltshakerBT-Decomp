@@ -1,8 +1,7 @@
 getMenu_input()
-
-if (active)
+if active
 {
-    if (key_jump2 && canProgress)
+    if key_jump2 && canProgress
     {
         dialogStuff[currentDialog].func()
         currentDialog++
@@ -10,7 +9,6 @@ if (active)
         textLetter = 1
         alarm[0] = 2
     }
-    
-    if (currentDialog > (array_length(dialogStuff) - 1))
+    if currentDialog > (array_length(dialogStuff) - 1)
         instance_destroy()
 }

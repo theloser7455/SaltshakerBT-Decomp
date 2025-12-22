@@ -1,16 +1,13 @@
-if (show == false)
+if show == false
     textY = approach(textY, -64, 2)
 else
     textY = approach(textY, 27, 10)
-
 visible = text != ""
-
 switch room
 {
     default:
         text = ""
         break
-    
     case hotel_entrance:
     case hotel_reception:
     case hotel_1:

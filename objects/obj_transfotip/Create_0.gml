@@ -5,6 +5,5 @@ text = ""
 depth = -500
 variables = []
 textY = SCREEN_HEIGHT - 64
-
-if (global.escape.active)
+if global.escape.active
     textY = SCREEN_HEIGHT - 150

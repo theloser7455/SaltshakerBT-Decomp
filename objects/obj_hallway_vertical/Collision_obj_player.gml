@@ -1,5 +1,4 @@
 instance_destroy()
-
 with other
 {
     door = other.targetDoor
@@ -10,8 +9,7 @@ with other
     savedpos = x - other.x
     hallwaySize = other.sprite_width
     hallway = 2
-    
-    if (!instance_exists(obj_fadeout))
+    if !instance_exists(obj_fadeout)
     {
         FMODevent_oneshot("event:/Sfx/General/Level/Progression/door")
         instance_create_depth(x, y, -1, obj_fadeout)

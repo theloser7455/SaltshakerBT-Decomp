@@ -1,4 +1,4 @@
-if (global.escape.active)
+if global.escape.active
 {
     image_alpha = 1
     x = -100

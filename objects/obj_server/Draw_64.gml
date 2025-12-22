@@ -1,6 +1,5 @@
 draw_set_font(global.smallfont)
-
-if (!ds_list_empty(notifs))
+if !ds_list_empty(notifs)
 {
     for (var i = 0; i < ds_list_size(notifs); i++)
     {

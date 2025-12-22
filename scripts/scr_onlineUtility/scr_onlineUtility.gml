@@ -7,7 +7,6 @@ function send_data(dta)
     self.network_send_packetServ(_buff, buffer_tell(_buff))
     buffer_delete(_buff)
 }
-
 function instance_create_online(_x, _y, _depth, _obj, _vars = {})
 {
     var struct = {}

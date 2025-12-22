@@ -29,7 +29,6 @@ buffer = 0
 tipText = ""
 playerPalSprite = spr_playerPal
 playerPalIndex = 0
-
 function doPause()
 {
     playeractiveState = obj_player.state
@@ -39,7 +38,6 @@ function doPause()
     FMODsetPauseAll(true)
     if sprite_exists(screenSprite)
         sprite_delete(screenSprite)
-    
     screenSprite = sprite_create_from_surface(obj_screensizer.gameSurface, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, false, false, 0, 0)
     instance_deactivate_all(true)
     instance_activate_object(obj_inputController)

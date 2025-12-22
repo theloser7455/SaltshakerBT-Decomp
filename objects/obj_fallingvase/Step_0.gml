@@ -1,35 +1,30 @@
-if (!dontdraw)
+if !dontdraw
 {
     image_angle += grav
     vsp += grav
     y += vsp
-    
-    if (y > (SCREEN_HEIGHT - 20))
+    if y > (SCREEN_HEIGHT - 20)
     {
         repeat (8)
         {
 			self.particleDebri(spr_vasedebris, i2, x, y, 1, random_range(0, 360), irandom_range(-12, -5), irandom_range(-8, -12))
 			i2 += 1
         }
-        
         FMODevent_oneshot("event:/Sfx/General/Level/metalbreak", x, y)
         dontdraw = true
     }
 }
-
-if (!ds_list_empty(particles))
+if !ds_list_empty(particles)
 {
     for (var i = 0; i < ds_list_size(particles); i++)
     {
         var q = ds_list_find_value(particles, i)
-        
         with q
         {
 			x += hsp
 			y += vsp
 			vsp += grav
-			
-			if (y > (SCREEN_HEIGHT + 150))
+			if y > (SCREEN_HEIGHT + 150)
 			{
 			    with other
 			    {
@@ -41,6 +36,5 @@ if (!ds_list_empty(particles))
         }
     }
 }
-
-if (dontdraw && ds_list_size(particles) == 0)
+if dontdraw && ds_list_size(particles) == 0
     instance_destroy()

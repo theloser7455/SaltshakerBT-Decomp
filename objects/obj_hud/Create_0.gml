@@ -9,7 +9,7 @@ kettle.cloudIndex = 0
 depth = -500
 collectVis = ds_list_create()
 tv = {}
-tv.state = states.normal
+tv.state = states.tvnormal
 tv.sprite_index = spr_tv_off
 tv.image_index = 0
 tv.image_speed = 0.35
@@ -28,11 +28,9 @@ combometer.vsp = 0
 combometer.state = -1
 combometer.vasedestroyed = false
 combometer.vaseoffset = 0
-
 hudVisible = function()
 {
     var _rooms = room == rm_intro || room == rank_room || room == avocadoMenu || room == serverMenuShit || room == hotel_entrance || room == hotel_reception || room == hotel_1 || room == hotel_2
     return !_rooms;
 }
-
 global.Srank = 14500

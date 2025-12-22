@@ -1,8 +1,6 @@
 if !instance_exists(obj_option)
     getMenu_input()
-
 var _nopauseRooms = room == rm_intro || room == avocadoEngine || instance_exists(obj_fadeout) || instance_exists(obj_rank) || obj_shell.isOpen
-
 if !active && key_start2 && !_nopauseRooms
 {
     doPause()

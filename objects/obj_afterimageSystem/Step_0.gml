@@ -1,9 +1,8 @@
-if (!ds_list_empty(afterimages))
+if !ds_list_empty(afterimages)
 {
     for (var i = 0; i < ds_list_size(afterimages); i++)
     {
         var q = ds_list_find_value(afterimages, i)
-        
         with q
         {
             switch type
@@ -11,23 +10,20 @@ if (!ds_list_empty(afterimages))
                 case afterimagetype.normal:
                     for (var r = 0; r < array_length(alarm); r++)
                     {
-                        if (alarm[r] >= 0)
+                        if alarm[r] >= 0
                             alarm[r]--
                     }
-                    
-                    if (alarm[1] == 0)
+                    if alarm[1] == 0
                     {
                         image_alpha = 0
                         alarm[2] = 4
                     }
-                    
-                    if (alarm[2] == 0)
+                    if alarm[2] == 0
                     {
                         image_alpha = 1
                         alarm[2] = 4
                     }
-                    
-                    if (alarm[0] == 0)
+                    if alarm[0] == 0
                     {
                         with other
                         {

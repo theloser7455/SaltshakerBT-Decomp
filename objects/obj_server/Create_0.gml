@@ -33,5 +33,4 @@ create_notifAsync = function(_text, _color)
 	network_send_packetServ(buff, buffer_tell(buff)); buffer_delete(buff);
 	ds_list_add(notifs, p);
 }
-
 playerInRoom = 0

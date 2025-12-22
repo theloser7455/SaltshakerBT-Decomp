@@ -1,7 +1,6 @@
 dialogStuff = []
 currentDialog = 0
 active = false
-
 addDialog = function(_portrait, _text, _funcdialog = function()
 {
 })
@@ -14,7 +13,6 @@ addDialog = function(_portrait, _text, _funcdialog = function()
     }
     array_push(dialogStuff, q)
 }
-
 textVisual = ""
 textLetter = 1
 canProgress = false

@@ -1,10 +1,8 @@
-if (obj_player.state != states.taunt)
+if obj_player.state != states.taunt
     instance_destroy()
-
 image_xscale = obj_player.xscale
 x = obj_player.x
 y = obj_player.y
-
 if place_meeting(x, y, obj_forkbox)
 {
     with instance_place(x, y, obj_forkbox)
@@ -27,7 +25,6 @@ if place_meeting(x, y, obj_forkbox)
     }
     shake_camera(25)
 }
-
 if place_meeting(x, y, obj_dart)
 {
     with instance_place(x, y, obj_dart)

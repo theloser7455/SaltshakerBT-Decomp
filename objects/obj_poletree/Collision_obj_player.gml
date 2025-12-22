@@ -1,4 +1,4 @@
-if (other.poletreeID == -4 && launchbuffer <= 0)
+if other.poletreeID == -4 && launchbuffer <= 0
 {
     with other
     {

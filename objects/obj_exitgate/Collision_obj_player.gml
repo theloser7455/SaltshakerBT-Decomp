@@ -1,4 +1,4 @@
-if (other.grounded && other.key_up && other.state != states.enterdoor && other.state != states.walkfront && global.escape.active)
+if other.grounded && other.key_up && other.state != states.enterdoor && other.state != states.walkfront && global.escape.active
 {
     with other
     {

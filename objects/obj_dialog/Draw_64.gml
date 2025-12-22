@@ -1,4 +1,4 @@
-if (active)
+if active
 {
     var _xx = SCREEN_WIDTH / 2
     var _yy = 125

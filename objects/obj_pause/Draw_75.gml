@@ -1,6 +1,6 @@
-if (!instance_exists(obj_option))
+if !instance_exists(obj_option)
 {
-    if (active)
+    if active
     {
         shader_set(shd_wave)
         shader_set_uniform_f(timeUniform, waveTime)
@@ -16,22 +16,18 @@ if (!instance_exists(obj_option))
         draw_sprite_ext(spr_disc, disc.index, SCREEN_WIDTH - 50, SCREEN_HEIGHT - 50, abs(disc.xscale), 1, disc.rotation, c_white, graphBack.alpha / 0.55)
         draw_set_alpha(1)
     }
-    
     var xx = SCREEN_WIDTH - 300
     var yy = (SCREEN_HEIGHT / 2) - (80 * ((array_length(options) - 1) / 2))
-    
     for (var i = 0; i < array_length(options); i++)
     {
         var q = options[i]
-        
-        if (!active)
+        if !active
 			q.offsetX = lerp(q.offsetX, SCREEN_WIDTH, 0.15)
         else if (selected == i)
 			q.offsetX = lerp(q.offsetX, -15, 0.15)
         else
 			q.offsetX = lerp(q.offsetX, 0, 0.15)
-        
-        if (is_struct(q))
+        if is_struct(q)
         {
 			draw_sprite(spr_pauseSelectBacon, selected != i, xx + q.offsetX, yy + (80 * i))
 			draw_set_font(global.bigfont)
@@ -40,7 +36,6 @@ if (!instance_exists(obj_option))
 			draw_textEX(xx + q.offsetX, (yy + (80 * i)) - 24, lang_get_phrase(q.option))
         }
     }
-    
     with bacon
     {
         draw_sprite(spr_pauseBaconNormal, index, round(x), round(y))
@@ -56,11 +51,9 @@ if (!instance_exists(obj_option))
         y = lerp(y, other.active ? 343 : 672, _interpY)
         smokeIndex += 0.1
     }
-    
     draw_sprite_ext(spr_pauseBorder, 0, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, graphBorderSize, graphBorderSize, 0, c_white, 1)
     graphBorderSize = lerp(graphBorderSize, active ? 1 : 2, 0.15)
-    
-    if (active)
+    if active
     {
         draw_set_font(global.smallfont)
         draw_set_color(c_white)
@@ -69,8 +62,7 @@ if (!instance_exists(obj_option))
         yy = SCREEN_HEIGHT - 32
         draw_text(xx, yy, calculateTime(global.save_timer))
         draw_text(xx, yy - 16, calculateTime(global.level_timer))
-        
-        if (tipText != "")
+        if tipText != ""
         {
 			draw_set_font(global.creditsfont)
 			draw_set_color(c_white)

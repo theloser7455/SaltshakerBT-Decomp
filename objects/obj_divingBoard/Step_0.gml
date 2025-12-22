@@ -1,6 +1,6 @@
 with obj_player
 {
-    if (state != states.diveboard && place_meeting(x, y + 1, other) && vsp >= 0 && grounded)
+    if state != states.diveboard && place_meeting(x, y + 1, other) && vsp >= 0 && grounded
     {
         diveboardSaved.movespeed = movespeed
         diveboardSaved.state = state

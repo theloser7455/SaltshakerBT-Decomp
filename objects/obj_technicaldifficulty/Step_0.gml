@@ -1,7 +1,6 @@
-if (showTechnical == false)
+if showTechnical == false
 {
     staticIndex += 0.35
-    
     if (staticIndex >= (sprite_get_number(spr_tvstatic) - 1))
     {
         showTechnical = true
@@ -10,11 +9,10 @@ if (showTechnical == false)
         alarm[0] = 90
     }
 }
-else if (showTechnical == true)
+else if showTechnical == true
 {
-    if (showStatic)
+    if showStatic
         staticIndex += 0.35
-    
     if (staticIndex >= (sprite_get_number(spr_tvstatic) - 1))
         instance_destroy()
 }

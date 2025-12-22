@@ -25,13 +25,13 @@ switch scene
         }
         with obj_player
         {
-			if (grounded && sprite_index == spr_player_spinout)
+			if grounded && sprite_index == spr_player_spinout
 			{
 			    hsp = 0
 			    sprite_index = spr_player_beakerintro
 			    image_index = 0
 			}
-			if (sprite_index == spr_player_beakerintro)
+			if sprite_index == spr_player_beakerintro
 			{
 			    if animation_end()
 			        image_index = image_number - 1
@@ -58,7 +58,7 @@ switch scene
     case 3:
         with obj_player
         {
-			if (sprite_index == spr_player_beakerintro)
+			if sprite_index == spr_player_beakerintro
 			{
 			    if animation_end()
 			        image_index = image_number - 1

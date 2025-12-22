@@ -1,2 +1,2 @@
-if (launchbuffer > 0)
+if launchbuffer > 0
     launchbuffer--
