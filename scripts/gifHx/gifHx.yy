@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"gifHx",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"gifHx",
+  "parent":{
+    "name":"Other",
+    "path":"folders/Scripts/Other.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
