@@ -15,5 +15,7 @@ Packages that it has:
 ### Problems
 - Icons dont appear correctly as its being called for. (possibly draw_textEX related.... i guess)
 - Gameframe's alpha is fucked up
-there might be more problems for this decomp, 
-but you can put up a issue if you find one.
+
+### is there anymore Problems or what?
+there might be more problems for this decomp...
+but...... you can put up a issue if you find one!
