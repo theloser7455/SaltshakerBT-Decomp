@@ -13,7 +13,7 @@ Packages that it has:
 - NekoPresence
 
 ### Problems
-- Icons dont appear correctly as its being called for. (possibly Draw_textEX related.... i guess)
+- Icons dont appear correctly as its being called for. (possibly draw_textEX related.... i guess)
 - Gameframe's alpha is fucked up
 there might be more problems for this decomp, 
 but you can put up a issue if you find one.
