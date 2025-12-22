@@ -1,7 +1,8 @@
 global.rooms = []
-
 for (var i = 0; room_exists(i); i++)
-    global.rooms[i] = room_get_name(i)
+{
+	global.rooms[i] = room_get_name(i)
+}
 
 function meta_ranktest()
 {
@@ -15,29 +16,24 @@ function meta_ranktest()
 
 function sh_ranktest(args)
 {
-    switch (args[1])
+    switch args[1]
     {
         case "D":
         default:
 			global.collect = 0
 			break
-        
         case "C":
 			global.collect = global.Crank
 			break
-        
         case "B":
 			global.collect = global.Brank
 			break
-        
         case "A":
 			global.collect = global.Arank
 			break
-        
         case "S":
 			global.collect = global.Srank
 			break
-        
         case "P":
 			global.collect = global.Srank
 			global.escape.party = true

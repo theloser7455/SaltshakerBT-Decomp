@@ -2,13 +2,13 @@ scr_collision()
 mask_index = spr_player_mask
 if y > (room_height + 100) || y < -100
     instance_destroy()
-if x > (room_width + 100) || x < -100 || y < -100 && state == states.enemythrown
+if x > (room_width + 100) || x < -100 || y < -100 && state == states.thrown
     instance_destroy()
 if escape && !global.escape.active
     instance_deactivate_object(self)
 with obj_player
 {
-    if place_meeting(x + hsp, y + vsp, other) && hitstun.is == false && other.state != states.enemyhit
+    if place_meeting(x + hsp, y + vsp, other) && hitstun.is == false && other.state != states.hit
     {
         var _baddie = other
         if state == states.mach2 || state == states.tumble
@@ -21,7 +21,7 @@ with obj_player
 			    vsp = -5
 			    xscale = obj_player.xscale
 			    scared = 120
-			    state = states.enemystun
+			    state = states.stun
 			    movespeed = abs(8 + (other.movespeed / 2))
 			    sprite_index = spr_stun
 			}
@@ -68,7 +68,7 @@ with obj_player
 			    hitstun.time = 5
 			    hitstun.is = true
 			    sprite_index = spr_stun
-			    state = states.enemyhit
+			    state = states.hit
 			}
         }
     }

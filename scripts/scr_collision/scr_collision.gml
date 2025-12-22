@@ -7,7 +7,6 @@ function scr_collision_init()
     coyote_time = 0;
     can_coyote = true;
 }
-
 function scr_collision()
 {
     grounded = false
@@ -57,7 +56,6 @@ function scr_collision()
                 }
         }
         }
-        
         if scr_solid(x, y)
         {
             x = o_x
@@ -65,10 +63,8 @@ function scr_collision()
             finalHsp = 0
         }
     }
-	
     grounded |= scr_solid(x, y + 1)
 }
-
 function scr_slope(_x, _y)
 {
     var _collided = false
@@ -76,7 +72,6 @@ function scr_slope(_x, _y)
         _collided = scr_slope_collideCheck(other.id, _x, _y)
     return _collided;
 }
-
 function scr_solid(_x, _y)
 {
     var _collided = false
@@ -130,7 +125,6 @@ function scr_solid(_x, _y)
     }
     return _collided;
 }
-
 function scr_slope_collideCheck(_playerId, _x, _y)
 {
 	var _height = _playerId.bbox_bottom - _playerId.y
@@ -149,7 +143,6 @@ function scr_slope_collideCheck(_playerId, _x, _y)
 	}
 	return _y + _height > _slopeFinal;
 }
-
 function scr_slope_get(_x = 0, _y = 1)
 {
 	return instance_place(x + _x, y + _y, obj_slope);

@@ -72,11 +72,12 @@ enum states
 	skibounce,
 	skirow,
 	// Enemy States
-	enemystun,
-	enemyhit,
-	enemymove,
-	enemyturn,
-	enemythrown,
+	stun,
+	hit,
+	move,
+	turn,
+	thrown,
+	projectile,
 	//TV States
 	tvnormal,
 	expr,

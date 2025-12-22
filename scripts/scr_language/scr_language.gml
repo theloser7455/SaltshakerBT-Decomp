@@ -1,7 +1,6 @@
 global.language = "english"
 global.langMapWord = ds_map_create()
 global.langMapArt = ds_map_create()
-
 function lang_init()
 {
     var _generalPath = "lang/"
@@ -20,7 +19,6 @@ function lang_init()
         ds_map_add(global.langMapArt, _jsonNames[i], sprite_add_gif(_spritePath, q.xorigin, q.yorigin))
     }
 }
-
 function lang_get_phrase(_file)
 {
     if (ds_map_exists(global.langMapWord, _file))
@@ -28,7 +26,6 @@ function lang_get_phrase(_file)
     else
         return _file;
 }
-
 function lang_get_asset(_asset)
 {
     if (ds_map_exists(global.langMapArt, _asset))

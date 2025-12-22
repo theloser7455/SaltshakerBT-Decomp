@@ -124,8 +124,7 @@ function escape_background(_normal, _escape) {
 	}
 }
 
-function scr_transfotip(_tiptext)
-{
+function scr_transfotip(_tiptext) {
 	if instance_exists(obj_transfotip)
 		instance_destroy(obj_transfotip)
 	var q = instance_create_depth(x, y, -10, obj_transfotip)

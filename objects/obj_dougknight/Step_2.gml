@@ -3,22 +3,22 @@ if hitstun.is == false
     event_inherited()
     switch state
     {
-        case states.enemystun:
+        case states.stun:
 			scr_enemy_stun()
 			break
-        case states.enemyhit:
+        case states.hit:
 			scr_enemy_hit()
 			break
-        case states.enemyturn:
+        case states.turn:
 			scr_enemy_turn()
 			break
-        case states.enemymove:
+        case states.move:
 			scr_enemy_move()
 			break
         case states.grab:
 			scr_enemy_grabbed()
 			break
-        case states.enemythrown:
+        case states.thrown:
 			scr_enemy_thrown()
 			break
     }
@@ -36,7 +36,7 @@ else
     y = hitstun.y
     hitstun.is = false
 }
-hitbox = state == states.enemymove || state == states.enemyturn
+hitbox = state == states.move || state == states.turn
 if hitbox == true
 {
     if !instance_exists(hitboxInst)

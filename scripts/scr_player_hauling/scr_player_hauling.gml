@@ -137,7 +137,7 @@ function scr_player_finishingblow()
         {
 			hitHsp = 25 * other.xscale
 			hitVsp = 0
-			state = states.enemythrown
+			state = states.thrown
         }
         
         enemyID = -4

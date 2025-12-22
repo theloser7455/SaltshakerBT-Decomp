@@ -11,7 +11,7 @@ if place_meeting(x, y, obj_forkbox)
         {
 			hitHsp = 25 * obj_player.xscale
 			hitVsp = 0
-			state = states.enemythrown
+			state = states.thrown
         }
     }
     with obj_player

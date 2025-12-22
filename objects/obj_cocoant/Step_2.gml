@@ -1,18 +1,18 @@
-if (hitstun.is == false)
+if hitstun.is == false
 {
     event_inherited()
     switch state
     {
-        case states.enemystun:
+        case states.stun:
 			scr_enemy_stun()
 			break
-        case states.enemyhit:
+        case states.hit:
 			scr_enemy_hit()
 			break
-        case states.enemyturn:
+        case states.turn:
 			scr_enemy_turn()
 			break
-        case states.enemymove:
+        case states.move:
 			attackTimer--
 			image_speed = 0.35
 			hsp = movespeed * xscale
@@ -32,22 +32,20 @@ if (hitstun.is == false)
 			if (point_distance(x, 0, obj_player.x, 0) <= 320 && point_distance(0, y, 0, obj_player.y) <= 160 && (obj_player.state == states.mach3 || obj_player.state == states.buzzsaw))
 			{
 			    vsp = -5
-			    
-			    if (obj_player.x != x)
+			    if obj_player.x != x
 			        xscale = sign(obj_player.x - x)
-			    
 			    sprite_index = spr_scared
 			    scared = 120
-			    state = states.enemystun
+			    state = states.stun
 			}
 			break
         case states.grab:
 			scr_enemy_grabbed()
 			break
-        case states.enemythrown:
+        case states.thrown:
 			scr_enemy_thrown()
 			break
-        case states.uppercut:
+        case states.projectile:
 			image_speed = 0.35
 			if animation_end() && sprite_index == spr_cocoant_shootprep
 			{
@@ -65,15 +63,15 @@ if (hitstun.is == false)
 			{
 			    image_index = 0
 			    sprite_index = spr_move
-			    state = states.enemymove
+			    state = states.move
 			}
 			movespeed = 0
 			break
     }
-    if (attackTimer <= 0 && point_distance(x, 0, obj_player.x, 0) <= 320 && point_distance(0, y, 0, obj_player.y) <= 42 && state == states.enemymove)
+    if (attackTimer <= 0 && point_distance(x, 0, obj_player.x, 0) <= 320 && point_distance(0, y, 0, obj_player.y) <= 42 && state == states.move)
     {
         attackTimer = 120
-        state = states.uppercut
+        state = states.projectile
         sprite_index = spr_cocoant_shootprep
         image_index = 0
         if obj_player.x != x
