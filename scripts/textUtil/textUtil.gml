@@ -158,7 +158,7 @@ function scr_compileIconText(_string)
 	
 }
 
-function draw_textEX(arg0, arg1, arg2, arg3 = string_width(arg2), arg4 = 1, arg5 = 1)
+function draw_textEX(_x, _y, _text, _w = string_width(_text), unknown4 = 1, unknown5 = 1)
 {
     var _stringArr = []
     var _lines = []
@@ -166,90 +166,62 @@ function draw_textEX(arg0, arg1, arg2, arg3 = string_width(arg2), arg4 = 1, arg5
     var _lX = 0
     var _lY = 0
     var _effect = noone
-    var _ox = arg0
-    var _oy = arg1
+    var _ox = _x
+    var _oy = _y
     var _return = {}
     var newWord = false
     
-    for (var i = 1; i <= string_length(arg2); i++)
+    for (var i = 1; i <= string_length(_text); i++)
     {
-        var _letter = string_char_at(arg2, i)
+        var _letter = string_char_at(_text, i)
         var _word = ""
         
-        if (_letter == " ")
-        {
+        if _letter == " "
 			newWord = true
-        }
-        else if (newWord == true && _letter != " ")
+        else if newWord == true && _letter != " "
         {
 			var c = i
-			
-			while (true)
+			for (var c = i; true; c++)
 			{
-			    var _lt = string_char_at(arg2, c)
-			    
-			    if (_lt == " " || c >= string_length(arg2))
+			    var _lt = string_char_at(_text, c)
+			    if _lt == " " || c >= string_length(_text)
 			    {
 			        newWord = false
 			        break
 			    }
-			    
 			    _word += _lt
-			    c += #010000
 			}
         }
-        
-        if ((_lX + string_width(_word)) >= arg3)
+        if _lX + string_width(_word) >= _w
         {
-			array_push(_lines, 
-			{
-			    w: _lX
-			})
+			array_push(_lines, { w: _lX })
 			_line++
 			_lX = 0
 			_lY += string_height("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
         }
         
-        var _str = 
-        {
-			specialType: -4,
-			letter: _letter,
-			x: _lX,
-			y: _lY,
-			effect: _effect,
-			line: _line
-        }
-        
-        switch _letter
-        {
+        var _str = {specialType: noone, letter: _letter, x: _lX, y: _lY, effect: _effect, line: _line}
+        switch _letter {
 			case "#":
-			    array_push(_lines, 
-			    {
-			        w: _lX
-			    })
+			    array_push(_lines, { w: _lX })
 			    _line++
 			    _lX = 0
 			    _lY += string_height("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 			    break
-			
 			case "[":
 			    var containedStr = ""
-			    var c = i + #010000
-			    
+			    var c = i + 1
 			    while (true)
 			    {
-			        var _lt = string_char_at(arg2, c)
-			        
-			        if (_lt == "]")
+			        var _lt = string_char_at(_text, c)
+			        if _lt == "]"
 			        {
 						i = c
 						break
 			        }
-			        
 			        containedStr += _lt
-			        c += #010000
+			        c++
 			    }
-			    
 			    if (string_pos("global.", containedStr) > 0)
 			    {
 			        var _gl = string_split(containedStr, "global.", true, 1)
@@ -276,29 +248,23 @@ function draw_textEX(arg0, arg1, arg2, arg3 = string_width(arg2), arg4 = 1, arg5
                             _lX += sprite_get_width(q.sprite)
                             array_push(_stringArr, _str)
                             break
-                        
                         case "weird":
                             if (!variable_instance_exists(self, "weirdPos"))
                                 weirdPos = []
-                            
                             if (!variable_instance_exists(self, "weirdTimer"))
                                 weirdTimer = 0
-                        
                         case "wave":
                         case "shake":
                             _effect = containedStr
                             break
-                        
                         case "clear":
                             _effect = noone
                             break
-                        
                         case "Ernie":
                             _str.specialType = "Ernie"
                             _lX += sprite_get_width(spr_ico2)
                             array_push(_stringArr, _str)
                             break
-                        
                         case "Bacontu":
                             _str.specialType = "Bacontu"
                             _lX += sprite_get_width(spr_ico)
@@ -306,22 +272,16 @@ function draw_textEX(arg0, arg1, arg2, arg3 = string_width(arg2), arg4 = 1, arg5
                             break
                     }
                 }
-                
                 break
-            
             default:
-                if (!(_lX == 0 && _letter == " "))
+                if !(_lX == 0 && _letter == " ")
                     _lX += string_width(_letter)
-                
                 array_push(_stringArr, _str)
                 break
         }
     }
-    
-    array_push(_lines, 
-    {
-        w: _lX
-    })
+    array_push(_lines, { w: _lX })
+	
     var _pHAlign = draw_get_halign()
     var _pVAlign = draw_get_valign()
     var _pFont = draw_get_font()
@@ -329,10 +289,9 @@ function draw_textEX(arg0, arg1, arg2, arg3 = string_width(arg2), arg4 = 1, arg5
     draw_set_halign(fa_left)
     draw_set_valign(fa_top)
     
-    if (variable_instance_exists(self, "weirdTimer"))
+    if variable_instance_exists(self, "weirdTimer")
     {
         weirdTimer--
-        
         if (weirdTimer <= 0)
         {
             weirdTimer = 60
@@ -350,73 +309,60 @@ function draw_textEX(arg0, arg1, arg2, arg3 = string_width(arg2), arg4 = 1, arg5
     {
         var _lDat = _stringArr[i]
         var _lType = _lDat.specialType
-        var _XX = arg0 + _lDat.x
-        var _YY = arg1 + _lDat.y
-        
+        var _XX = _x + _lDat.x
+        var _YY = _y + _lDat.y
         switch _pHAlign
         {
-            case 1:
+            case fa_center:
                 _lDat.x -= _lines[_lDat.line].w / 2
                 break
-            
-            case 2:
+            case fa_right:
                 _lDat.x -= _lines[_lDat.line].w
                 break
         }
-        
         switch _pVAlign
         {
-            case 1:
+            case fa_middle:
                 _lDat.y -= _lY / 2
                 break
-            
-            case 2:
+            case fa_bottom:
                 _lDat.y -= _lY
                 break
         }
-        
         switch _lDat.effect
         {
             default:
-                _XX = arg0 + _lDat.x
-                _YY = arg1 + _lDat.y
+                _XX = _x + _lDat.x
+                _YY = _y + _lDat.y
                 break
-            
             case "shake":
-                _XX = arg0 + _lDat.x + irandom_range(-1, 1)
-                _YY = arg1 + _lDat.y + irandom_range(-1, 1)
+                _XX = _x + _lDat.x + irandom_range(-1, 1)
+                _YY = _y + _lDat.y + irandom_range(-1, 1)
                 break
-            
             case "wave":
-                _XX = arg0 + _lDat.x
-                _YY = arg1 + _lDat.y + irandom_range(-1, 1)
+                _XX = _x + _lDat.x
+                _YY = _y + _lDat.y + irandom_range(-1, 1)
                 break
-            
             case "weird":
-                _XX = arg0 + _lDat.x + weirdPos[i].x
-                _YY = arg1 + _lDat.y + weirdPos[i].y
+                _XX = _x + _lDat.x + weirdPos[i].x
+                _YY = _y + _lDat.y + weirdPos[i].y
                 break
         }
-        
         _XX = floor(_XX)
         _YY = floor(_YY)
-        
         switch _lType
         {
             case noone:
                 draw_text(_XX, _YY, _lDat.letter)
                 break
-            
             case "Ernie":
                 draw_sprite(spr_ico2, 0, _XX - 2, _YY - 7)
                 break
-            
             case "Bacontu":
                 draw_sprite(spr_ico, 0, _XX - 2, _YY - 7)
                 break
-            
             case "controlKey":
-                if (_lDat.keyDet.isKey)
+                if _lDat.keyDet.isKey
                 {
                     draw_sprite(_lDat.keyDet.sprite, _lDat.keyDet.value, _XX - 8, _YY + 2)
                 }
@@ -429,11 +375,9 @@ function draw_textEX(arg0, arg1, arg2, arg3 = string_width(arg2), arg4 = 1, arg5
                     draw_set_color(_pColor)
                     draw_set_font(_pFont)
                 }
-                
                 break
         }
     }
-    
     draw_set_halign(_pHAlign)
     draw_set_valign(_pVAlign)
     _return.lines = _lines

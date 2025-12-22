@@ -3,13 +3,12 @@ buffer_seek(_playerBuff, buffer_seek_start, 0)
 global.playercount = ds_list_size(connections) + 1
 var _socket = global.client
 var _isServer = global.client == -4
-
-if (_isServer)
+if _isServer
     _socket = "server"
 
 var _spr = obj_player.sprite_index
 
-if (global.username == "nettysketty")
+if (global.username == "nettysketty") //netty touch pomni :)
     _spr = spr_mildredKart
 
 var _struct = 

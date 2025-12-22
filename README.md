@@ -1,7 +1,7 @@
 # SaltshakerBT-Decomp
 A actual "Decompile" of What's Shakin Bacon?
 
-GameMaker Beta Version Used: ```2024.1400.1.926```
+GameMaker Beta Version Used: ```2024.1400.2.941```
 
 Packages that it has:
 - Gameframe
@@ -12,10 +12,5 @@ Packages that it has:
 - rtShell
 - NekoPresence
 
-### Problems
-- Icons dont appear correctly as its being called for. (possibly draw_textEX related.... i guess)
-- Gameframe's alpha is fucked up
-
-### is there anymore Problems or what?
-there might be more problems for this decomp...
-but...... you can put up a issue if you find one!
+### i found a issue with the decomp????
+if you find a issue with the decomp please make a issue on the repo!

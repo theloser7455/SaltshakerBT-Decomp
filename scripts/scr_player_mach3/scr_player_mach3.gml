@@ -32,16 +32,16 @@ function scr_player_mach3()
     if move == xscale && grounded
         movespeed = approach(movespeed, 20, _accel)
     
-    if animation_end() && sprite_index == spr_player_buzzsawCancel
+    if (animation_end() && sprite_index == spr_player_buzzsawCancel)
         image_index = image_number - 2
     
-    if animation_end() && sprite_index == spr_player_mach3jump || sprite_index == spr_player_mach3hit || sprite_index == spr_player_rollgetup
+    if (animation_end() && (sprite_index == spr_player_mach3jump || sprite_index == spr_player_mach3hit || sprite_index == spr_player_rollgetup))
     {
         image_index = 0
         sprite_index = spr_player_mach3
     }
     
-    if movespeed >= 16 && sprite_index != spr_player_crazyrun && sprite_index != spr_player_buzzsawCancel
+    if (movespeed >= 16 && sprite_index != spr_player_crazyrun && sprite_index != spr_player_buzzsawCancel)
     {
         sprite_index = spr_player_crazyrun
         flash = true
@@ -71,7 +71,7 @@ function scr_player_mach3()
         }
     }
     
-    if grounded && sprite_index == spr_player_superjumpcancel || sprite_index == spr_player_buzzsawCancel
+    if (grounded && (sprite_index == spr_player_superjumpcancel || sprite_index == spr_player_buzzsawCancel))
     {
         flash = true
         image_index = 0

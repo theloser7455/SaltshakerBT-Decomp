@@ -55,36 +55,36 @@ function create_collect(_sprite, _x, _y, _bypass = false)
 	return par;
 }
 
-function create_afterimage(arg0, arg1, arg2, arg3, arg4, arg5 = 1)
+function create_afterimage(_sprite, _index, _x, _y, _xscale, _alpha = 1)
 {
     var aft = 
     {
-        sprite_index: arg0,
-        image_index: arg1,
-        x: arg2,
-        y: arg3,
-        image_xscale: arg4,
+        sprite_index: _sprite,
+        image_index: _index,
+        x: _x,
+        y: _y,
+        image_xscale: _xscale,
         image_blend: choose(c_red, c_blue),
         alarm: [15, 5, -2],
         type: afterimagetype.normal,
-        alpha: arg5,
+        alpha: _alpha,
         image_alpha: 1
     }
     ds_list_add(obj_afterimageSystem.afterimages, aft)
     return aft;
 }
 
-function create_buzzsawAfterimage(arg0, arg1, arg2, arg3, arg4, arg5 = 1)
+function create_buzzsawAfterimage(_sprite, _index, _x, _y, _xscale, _alpha = 1)
 {
-    var q = create_afterimage(arg0, arg1, arg2, arg3, arg4, 0.8)
+    var q = create_afterimage(_sprite, _index, _x, _y, _xscale, 0.8)
     q.image_blend = c_white
     q.type = afterimagetype.buzzsaw
     return q;
 }
 
-function create_blur_effect(arg0, arg1, arg2, arg3, arg4)
+function create_blur_effect(_sprite, _index, _x, _y, _xscale)
 {
-    var q = create_afterimage(arg0, arg1, arg2, arg3, arg4, 0.8)
+    var q = create_afterimage(_sprite, _index, _x, _y, _xscale, 0.8)
     q.image_blend = c_white
     q.type = afterimagetype.fade
     return q;

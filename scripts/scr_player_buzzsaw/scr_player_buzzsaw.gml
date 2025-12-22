@@ -40,7 +40,7 @@ function scr_player_buzzsaw()
         sprite_index = spr_player_buzzsawBump
     }
     
-    if animation_end() && sprite_index == spr_player_buzzsawBump
+    if (animation_end() && sprite_index == spr_player_buzzsawBump)
         sprite_index = spr_player_buzzsaw
     
     if grounded

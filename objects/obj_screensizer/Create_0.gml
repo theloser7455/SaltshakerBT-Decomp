@@ -2,6 +2,7 @@ depth = -9999
 gameframe_init()
 global.gameframe_caption_text = "What's Shakin, [Bacontu]?"
 global.gameframe_caption_font = fnt_caption
+global.gameframe_blend = c_black
 mouse_in_window = false
 gameframe_visible_time = 60
 mouseX = mouse_x
@@ -10,8 +11,8 @@ displayWidth = 960
 displayHeight = 540
 darksurf = surface_create(displayWidth + 32, displayHeight + 32)
 dark = false
-gameSurface = -4
-screen_surf = -4
+gameSurface = noone
+screen_surf = noone
 size = 1
 game_set_speed(60, gamespeed_fps)
 x = 0

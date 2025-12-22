@@ -85,7 +85,7 @@ else
 			obj_player.state = states.normal
 			room_goto(avocadoMenu)
 			instance_create_depth(x, y, 0, obj_server)
-			obj_server.create_notifAsync("Player has connected!", 65535)
+			obj_server.create_notifAsync("Player has connected!", c_yellow)
 			        }
 			    }
 			}

@@ -811,36 +811,26 @@ function gameframe_caption_draw_caption_rect_default(__x, __y, __width, __height
 
 function gameframe_caption_draw_caption_text_default(__x, __y, __width, __height) {
 	// gameframe_caption_draw_caption_text_default(_x:number, _y:number, _width:number, _height:int)
-	var _dpiScale = gameframe_effective_scale;
-	var __right = __x + __width;
-	__x += gameframe_caption_margin * _dpiScale;
-	var _icon = gameframe_caption_icon;
-	if (_icon != -1) {
-		draw_sprite_ext(_icon, -1, (__x + sprite_get_xoffset(_icon) * _dpiScale | 0), __y + ((__height - sprite_get_height(_icon) * _dpiScale) div 2) + sprite_get_yoffset(_icon) * _dpiScale, _dpiScale, _dpiScale, 0, c_white, gameframe_caption_alpha * gameframe_alpha);
-		__x += (sprite_get_width(_icon) + gameframe_caption_icon_margin) * _dpiScale;
-	}
-	var _text = gameframe_caption_text;
-	if (_text == "") exit;
-	var __newFont = gameframe_caption_font;
-	var __h = draw_get_halign();
-	var __v = draw_get_valign();
-	var __oldFont;
-	if (__newFont != -1) {
-		__oldFont = draw_get_font();
-		draw_set_font(__newFont);
-	} else __oldFont = -1;
-	draw_set_halign(gameframe_caption_text_align);
-	draw_set_valign(0);
-	var __alpha = draw_get_alpha();
-	var __textWidth = __right - __x;
-	draw_set_alpha((gameframe_alpha * gameframe_caption_alpha));
-	draw_text_ext_transformed((__x + ((gameframe_caption_text_align * __textWidth) div 2)), __y + ((__height - string_height_ext(_text, -1, __textWidth) * _dpiScale) div 2), _text, -1, __textWidth, _dpiScale, _dpiScale, 0);
-	draw_set_alpha(__alpha);
-	if (__newFont != -1) draw_set_font(__oldFont);
-	draw_set_halign(__h);
-	draw_set_valign(__v);
+    var _dpiScale = global.gameframe_effective_scale;
+    var __h = draw_get_halign();
+    var __v = draw_get_valign();
+    var __oldFont = draw_get_font();
+    var __alpha = draw_get_alpha();
+    var _text = global.gameframe_caption_text;
+    if (_text == "") exit;
+    var __right = __x + __width;
+    var __textWidth = __right - __x;
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+    draw_set_color(c_white);
+    draw_set_font(global.gameframe_caption_font);
+    draw_set_alpha(global.gameframe_alpha * global.gameframe_caption_alpha);
+    draw_textEX(__x + ((global.gameframe_caption_text_align * __textWidth) div 2) + 5, __y + ((__height - (string_height_ext(_text, -1, __textWidth) * _dpiScale)) div 2), _text);
+    draw_set_alpha(__alpha);
+    draw_set_halign(__h);
+    draw_set_valign(__v);
+    draw_set_font(__oldFont);
 }
-
 #endregion
 
 #region gameframe_cover
@@ -1098,8 +1088,8 @@ function gameframe_std_Std_stringify(_value) {
 			while (_i > 0) {
 				switch (string_ord_at(_s, _i)) {
 					case 48:
-			_i--;
-			continue;
+						_i--;
+						continue;
 					case 46: _i--; break;
 				}
 				break;
@@ -1110,8 +1100,8 @@ function gameframe_std_Std_stringify(_value) {
 			while (_i > 0) {
 				switch (string_byte_at(_s, _i)) {
 					case 48:
-			_i--;
-			continue;
+						_i--;
+						continue;
 					case 46: _i--; break;
 				}
 				break;
@@ -1214,7 +1204,7 @@ gameframe_spr_buttons = asset_get_index("spr_gameframe_buttons");
 globalvar gameframe_spr_pixel; /// @is {sprite}
 gameframe_spr_pixel = asset_get_index("spr_gameframe_pixel");
 globalvar gameframe_default_cursor; /// @is {window_cursor}
-gameframe_default_cursor = cr_none;
+gameframe_default_cursor = cr_arrow;
 globalvar gameframe_set_cursor; /// @is {bool}
 gameframe_set_cursor = true;
 globalvar gameframe_current_cursor; /// @is {window_cursor}
@@ -1240,7 +1230,7 @@ gameframe_caption_text = window_get_caption();
 globalvar gameframe_caption_alpha; /// @is {number}
 gameframe_caption_alpha = 1;
 globalvar gameframe_caption_font; /// @is {font}
-gameframe_caption_font = fnt_caption;
+gameframe_caption_font = -1;
 globalvar gameframe_caption_text_align; /// @is {gml_gpu_TextAlign}
 gameframe_caption_text_align = 0;
 globalvar gameframe_caption_icon; /// @is {sprite}
