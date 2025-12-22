@@ -370,7 +370,7 @@ add_option_press(controlsPadMain, "option_controls_deadzones", function()
 })
 #endregion
 
-#region // Controls Key
+#region // Controls Keyboard Section
 var controlsKey = create_menu(option.controlsKey, option.keys, 64, function()
 {
     var q = json_stringify(global.inputMap, true)
@@ -446,7 +446,7 @@ add_option_key(controlsKey, "MENU CLEAR", function()
 }, "Inputs_Player1_menu_clearKey")
 #endregion
 
-#region Controls Pad
+#region Controls Gamepad Section
 var controlsPad = create_menu(option.controlsPad, option.keys, 55, function()
 {
     goto_menu(option.controlsPadMain)
