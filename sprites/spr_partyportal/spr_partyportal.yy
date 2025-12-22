@@ -27,8 +27,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Level Related",
-    "path":"folders/Sprites/Level Related.yy",
+    "name":"Lapping Related",
+    "path":"folders/Sprites/Level Related/Lapping Related.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -43,8 +43,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"BG (Backgrounds)",
-    "path":"folders/Sprites/BG (Backgrounds).yy",
+    "name":"Wasted Shores",
+    "path":"folders/Sprites/BG (Backgrounds)/Wasted Shores.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"BG (Backgrounds)",
-    "path":"folders/Sprites/BG (Backgrounds).yy",
+    "name":"WayBackyard",
+    "path":"folders/Sprites/BG (Backgrounds)/WayBackyard.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

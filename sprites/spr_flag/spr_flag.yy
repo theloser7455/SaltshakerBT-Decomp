@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Level Related",
-    "path":"folders/Sprites/Level Related.yy",
+    "name":"Flag",
+    "path":"folders/Sprites/Level Related/Destroyables & Blocks/Flag.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

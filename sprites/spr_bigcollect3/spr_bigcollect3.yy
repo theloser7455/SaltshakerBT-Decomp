@@ -35,7 +35,7 @@
   "origin":4,
   "parent":{
     "name":"Collectables",
-    "path":"folders/Sprites/Level Related/Collectables.yy",
+    "path":"folders/Sprites/Level Related/Destroyables & Blocks/Collectables.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

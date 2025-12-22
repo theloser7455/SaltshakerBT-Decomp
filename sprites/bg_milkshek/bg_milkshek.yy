@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"BG (Backgrounds)",
-    "path":"folders/Sprites/BG (Backgrounds).yy",
+    "name":"Milksnek",
+    "path":"folders/Sprites/BG (Backgrounds)/Milksnek.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -34,8 +34,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Level Related",
-    "path":"folders/Sprites/Level Related.yy",
+    "name":"Monolith",
+    "path":"folders/Sprites/Level Related/Enemys/Monolith.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

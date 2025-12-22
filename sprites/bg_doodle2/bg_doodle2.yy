@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"BG (Backgrounds)",
-    "path":"folders/Sprites/BG (Backgrounds).yy",
+    "name":"Doodle (Secrets)",
+    "path":"folders/Sprites/BG (Backgrounds)/Doodle (Secrets).yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

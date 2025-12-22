@@ -38,7 +38,7 @@
   "origin":4,
   "parent":{
     "name":"\"Ranks\"",
-    "path":"folders/Sprites/\"Ranks\".yy",
+    "path":"folders/Sprites/Player (Mildred)/\"Ranks\".yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

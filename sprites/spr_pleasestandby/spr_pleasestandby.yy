@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"UI",
-    "path":"folders/Sprites/UI.yy",
+    "name":"TV Related",
+    "path":"folders/Sprites/UI/TV Related.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

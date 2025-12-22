@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Level Related",
-    "path":"folders/Sprites/Level Related.yy",
+    "name":"Milksnek",
+    "path":"folders/Sprites/Level Related/Milksnek.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"UI",
-    "path":"folders/Sprites/UI.yy",
+    "name":"Disco Ball",
+    "path":"folders/Sprites/Level Related/Lapping Related/Disco Ball.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
