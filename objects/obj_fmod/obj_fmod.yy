@@ -9,8 +9,8 @@
   "name":"obj_fmod",
   "overriddenProperties":[],
   "parent":{
-    "name":"Fmod",
-    "path":"folders/Fmod.yy",
+    "name":"Important",
+    "path":"folders/Objects/Important.yy",
   },
   "parentObjectId":null,
   "persistent":true,

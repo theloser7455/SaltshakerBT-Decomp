@@ -1,7 +1,7 @@
 depth = -9999
 gameframe_init()
 global.gameframe_caption_text = "What's Shakin, [Bacontu]?"
-global.gameframe_caption_font = fnt_caption
+global.gameframe_caption_font = font_caption
 global.gameframe_blend = c_black
 mouse_in_window = false
 gameframe_visible_time = 60

@@ -6,7 +6,7 @@
   "name":"scr_retro_pal_swapper",
   "parent":{
     "name":"Retro Pal Swapper",
-    "path":"folders/Retro Pal Swapper.yy",
+    "path":"folders/Scripts/Retro Pal Swapper.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

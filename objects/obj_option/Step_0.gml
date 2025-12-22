@@ -7,12 +7,10 @@ if (buffer == 0)
     var q = opt[selected]
     BGX--
     BGY--
-    
     if q.type != option.slider
         move = key_left2 + key_right2
     else
         move = key_left + key_right
-    
     if move != 0 && q.type != option.press && q.type != option.key
     {
         q.val += move
@@ -22,16 +20,13 @@ if (buffer == 0)
         if q.type != option.slider
 			FMODevent_oneshot("event:/Sfx/UI/Pause/menuselect")
     }
-    
     var _oSelect = selected
     var _move2 = key_down2 - key_up2
-    
     if _move2 != 0 && changingBind == false
     {
         selected += _move2
         selected = clamp(selected, 0, _length)
-        
-        if (selected != _oSelect)
+        if selected != _oSelect
 			FMODevent_oneshot("event:/Sfx/UI/Pause/step")
     }
     if key_slap2 && q.selecting == false && changingBind == false
@@ -39,34 +34,28 @@ if (buffer == 0)
         m.backfunc()
         FMODevent_oneshot("event:/Sfx/UI/Pause/menuback")
     }
-    
     if q.type != option.key && q.type != option.slider
     {
-        if (key_jump2)
+        if key_jump2
         {
 			FMODevent_oneshot("event:/Sfx/UI/Pause/menuselect")
-			
 			if q.type != option.press
 			{
 			    q.val += 1
 			    q.val = wrap(q.val, 0, q.max)
 			}
-			
 			q.func()
         }
     }
-    
     if q.type == option.slider
     {
         if move != 0
         {
 			q.moving = true
-			
 			if currentmenu == 1
 			    fmod_studio_event_instance_set_paused(screamSnd, false)
 			if !FMODevent_isplaying(screamSnd)
 			    fmod_studio_event_instance_start(screamSnd)
-			
 			fmod_studio_event_instance_set_volume(screamSnd, (q.val / 100) * global.MasterVolume)
         }
         else
@@ -75,29 +64,25 @@ if (buffer == 0)
 			fmod_studio_event_instance_set_paused(screamSnd, true)
         }
     }
-    
 	if q.type != option.slider
 		fmod_studio_event_instance_set_paused(screamSnd, true);
-    
-    if (currentmenu == 6)
+    if currentmenu == 6
     {
-        if (keyboard_check_pressed(vk_f1) && changingBind == false)
+        if keyboard_check_pressed(vk_f1) && changingBind == false
 			reset_input()
-        
         if q.type == option.key
         {
-			if (!changingBind)
+			if !changingBind
 			{
-			    if (key_jump2)
+			    if key_jump2
 			        changingBind = true
 			    else if key_taunt2
 			        variable_struct_set(global.inputMap, q.key, [])
 			}
-			else if (keyboard_check_pressed(vk_anykey))
+			else if keyboard_check_pressed(vk_anykey)
 			{
 			    draw_set_font(global.npcfont)
 			    var keyboardKey = variable_struct_get(global.inputMap, q.key)
-			    
 			    if (!array_contains(keyboardKey, keyboard_key) && (string_width(string_upper(chr(keyboard_key))) > 0 || keyboard_key == vk_up || keyboard_key == vk_down || keyboard_key == vk_left || keyboard_key == vk_right || keyboard_key == vk_escape || keyboard_key == vk_shift || keyboard_key == vk_space || keyboard_key == vk_control))
 			    {
 			        array_push(variable_struct_get(global.inputMap, q.key), keyboard_key)
@@ -106,112 +91,110 @@ if (buffer == 0)
 			}
         }
     }
-    
-    if (currentmenu == 8)
+    if currentmenu == 8
     {
-        if (keyboard_check_pressed(vk_f1) && changingBind == false)
+        if keyboard_check_pressed(vk_f1) && changingBind == false
 			reset_input()
-        
         if q.type == option.key
         {
-			if (!changingBind)
+			if !changingBind
 			{
-			    if (key_jump2)
+			    if key_jump2
 			        changingBind = true
 			    else if key_taunt2
 			        array_set(variable_struct_get(global.inputMap, q.key), 1, [])
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_face1))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_face1)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_face1)
 			    changingBind = false
 			    q.func()
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_face2))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_face2)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_face2)
 			    changingBind = false
 			    q.func()
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_face3))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_face3)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_face3)
 			    changingBind = false
 			    q.func()
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_shoulderlb))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_shoulderlb)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_shoulderlb)
 			    changingBind = false
 			    q.func()
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_shoulderrb))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_shoulderrb)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_shoulderrb)
 			    changingBind = false
 			    q.func()
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_shoulderl))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_shoulderl)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_shoulderl)
 			    changingBind = false
 			    q.func()
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_shoulderr))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_shoulderr)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_shoulderr)
 			    changingBind = false
 			    q.func()
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_face4))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_face4)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_face4)
 			    changingBind = false
 			    q.func()
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_padu))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_padu)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_padu)
 			    changingBind = false
 			    q.func()
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_padd))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_padd)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_padd)
 			    changingBind = false
 			    q.func()
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_padl))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_padl)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_padl)
 			    changingBind = false
 			    q.func()
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_padr))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_padr)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_padr)
 			    changingBind = false
 			    q.func()
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_stickl))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_stickl)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_stickl)
 			    changingBind = false
 			    q.func()
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_stickr))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_stickr)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_stickr)
 			    changingBind = false
 			    q.func()
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_start))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_start)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_start)
 			    changingBind = false
 			    q.func()
 			}
-			else if (gamepad_button_check_pressed(global.gamepadCurrent, gp_select))
+			else if gamepad_button_check_pressed(global.gamepadCurrent, gp_select)
 			{
 			    array_push(variable_struct_get(global.inputMap, q.key), gp_select)
 			    changingBind = false

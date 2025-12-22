@@ -12,7 +12,7 @@ for (var i = 0; i < array_length(menus); i++)
 {
     draw_set_halign(fa_center)
     var q = menus[i]
-    draw_set_font(fnt_caption)
+    draw_set_font(font_caption)
     draw_set_color(c_black)
     var _yy = q.y
     draw_text(SCREEN_WIDTH / 2, _yy + 50, menus[i].header)
