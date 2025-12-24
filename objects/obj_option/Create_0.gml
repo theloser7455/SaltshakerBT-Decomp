@@ -54,15 +54,12 @@ depth = obj_pause.depth - 1
 screamSnd = FMODcreate_event("event:/Sfx/UI/Pause/slider")
 fmod_studio_event_instance_start(screamSnd)
 fmod_studio_event_instance_set_paused(screamSnd, true);
-
 #region Functions
-
 addPause_icon = function(_index) constructor
 {
 	index = _index
 	alpha = 0
 }
-
 goto_menu = function(_id)
 {
 	for (var i = 0; i < array_length(menus); i++)
@@ -74,7 +71,6 @@ goto_menu = function(_id)
 	show_debug_message(currentmenu)
 	selected = 0
 }
-
 create_menu = function(_id, _anchor, _ypad, _func)
 {
 	var _opt = 
@@ -87,8 +83,7 @@ create_menu = function(_id, _anchor, _ypad, _func)
 	}
 	return _opt;
 }
-
-add_option_press = function(_id, _name, _function, _icon = -4)
+add_option_press = function(_id, _name, _function, _icon = noone)
 {
 	var q = 
 	{
@@ -101,7 +96,6 @@ add_option_press = function(_id, _name, _function, _icon = -4)
 	array_push(_id.options, q)
 	return q;
 }
-
 add_option_ext = function(_id, _type, _name, _function, _value, _max, _toggle = ["OFF", "ON"])
 {
 	var q = 
@@ -119,7 +113,6 @@ add_option_ext = function(_id, _type, _name, _function, _value, _max, _toggle = 
 	array_push(_id.options, q)
 	return q;
 }
-
 add_option_key = function(_id, _iconIndex, _function, _key = "Inputs_Player1_leftKey")
 {
 	var q = 
@@ -133,9 +126,7 @@ add_option_key = function(_id, _iconIndex, _function, _key = "Inputs_Player1_lef
 	array_push(_id.options, q)
 	return q;
 }
-
 #endregion
-
 #region Main
 var category = create_menu(option.main, option.center, 48, function()
 {
@@ -160,7 +151,6 @@ add_option_press(category, "option_controls", function()
 }, new addPause_icon(7))
 array_push(menus, category)
 #endregion
-
 #region Audio
 var AUDIO = create_menu(option.audio, option.left, 48, function()
 {
@@ -219,7 +209,6 @@ add_option_ext(AUDIO, 15, "option_audio_unfocus", function()
     q.val = global.unfocus_mute
 }, global.unfocus_mute, 1)
 #endregion
-
 #region Video
 var VIDEO = create_menu(option.video, option.left, 48, function()
 {
@@ -279,7 +268,6 @@ add_option_ext(VIDEO, option.multi, "option_video_hide_hud", function()
     q.val = global.hide_hud
 }, global.hide_hud, 1)
 #endregion
-
 #region Game
 var GAME = create_menu(option.game, option.left, 48, function()
 {
@@ -290,7 +278,6 @@ add_option_press(GAME, "option_back", function()
     goto_menu(option.main)
 })
 #endregion // Theres. nothing. Thank you son.
-
 #region Controls Main
 var controlsMain = create_menu(option.controlsMain, option.left, 48, function()
 {
@@ -315,7 +302,6 @@ add_option_press(controlsMain, "option_controls_reset_config", function()
     _s.depth = depth - 1
 })
 #endregion
-
 #region Controls Keyboard Main
 var controlsKeyMain = create_menu(option.controlsKeyMain, option.left, 48, function()
 {
@@ -350,7 +336,6 @@ add_option_ext(controlsKeyMain, option.multi, "option_controls_controller_dir_gr
     q.val = global.dirGround
 }, global.dirGround, 1)
 #endregion
-
 #region //Controls Gamepad Main
 var controlsPadMain = create_menu(option.controlsPadMain, option.left, 48, function()
 {
@@ -369,7 +354,6 @@ add_option_press(controlsPadMain, "option_controls_deadzones", function()
     goto_menu(option.controlsPadDeadzones)
 })
 #endregion
-
 #region // Controls Keyboard Section
 var controlsKey = create_menu(option.controlsKey, option.keys, 64, function()
 {
@@ -445,7 +429,6 @@ add_option_key(controlsKey, "MENU CLEAR", function()
 {
 }, "Inputs_Player1_menu_clearKey")
 #endregion
-
 #region Controls Gamepad Section
 var controlsPad = create_menu(option.controlsPad, option.keys, 55, function()
 {
@@ -516,7 +499,6 @@ add_option_key(controlsPad, "MENU CLEAR", function()
 {
 }, "Inputs_Player1_menu_clearPad")
 #endregion
-
 #region Gamepad Deadzones
 var DEADZONES = create_menu(option.controlsPadDeadzones, option.left, 55, function()
 {
@@ -567,7 +549,6 @@ add_option_ext(DEADZONES, option.slider, "option_controls_controller_deadzone_pr
     q.val = global.gamepadDeadzones.press * 100
 }, global.gamepadDeadzones.press * 100, 100)
 #endregion
-
 #region // Window Mode/Video
 var windowMode = create_menu(option.videoWindowMode, option.left, 48, function()
 {
@@ -607,7 +588,6 @@ add_option_press(windowMode, "option_video_window_mode_borderless", function()
     add_saveVariable("General", "Fullscreen", global.Fullscreen)
 })
 #endregion
-
 array_push(menus, AUDIO)
 array_push(menus, VIDEO)
 array_push(menus, GAME)

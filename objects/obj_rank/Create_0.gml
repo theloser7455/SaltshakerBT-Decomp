@@ -7,7 +7,7 @@ ds_list_clear(global.followers)
 canContinue = false
 fadeAlpha = 0
 cutscenePart = 0
-obj_player.state = -4
+obj_player.state = noone
 showRank = false
 showRankText = false
 rankIndex = 0
@@ -76,7 +76,7 @@ switch _rankIndex
 }
 uniform1 = shader_get_uniform(shd_fullshade, "lightest")
 uniform2 = shader_get_uniform(shd_fullshade, "darkest")
-rankSurf = -4
+rankSurf = noone
 col = [color_get_red(_col) / 255, color_get_green(_col) / 255, color_get_blue(_col) / 255]
 col2 = [color_get_red(_col2) / 255, color_get_green(_col2) / 255, color_get_blue(_col2) / 255]
 colorAlpha = 0

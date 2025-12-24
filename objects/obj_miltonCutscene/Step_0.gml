@@ -4,7 +4,7 @@ switch scene
         randomEventTimer = 60
         with obj_player
         {
-			state = -4
+			state = noone
 			vsp = -7
 			hsp = 7
 			sprite_index = spr_player_spinout

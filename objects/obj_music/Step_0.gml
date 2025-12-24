@@ -1,6 +1,5 @@
-if func != -4
+if func != noone
     func()
-
 if global.escape.active == false
 {
     panicStart = true
@@ -27,7 +26,6 @@ else
         fmod_studio_event_instance_set_parameter_by_name(escapeInst, "state", 0)
     }
 }
-
 if instance_exists(obj_monolith)
 {
     if !FMODevent_isplaying(monolith) && !FMODevent_isstarting(monolith)
@@ -36,7 +34,6 @@ if instance_exists(obj_monolith)
     var _cam
     with obj_monolith
         _cam = in_camera()
-    
     pillar = approach(pillar, _cam, 0.016666666666666666)
 }
 else
@@ -45,12 +42,10 @@ else
         fmod_studio_event_instance_stop(monolith, FMOD_STUDIO_STOP_MODE.IMMEDIATE)
     pillar = 0
 }
-
 fmod_studio_event_instance_set_parameter_by_name(monolith, "flitzani", pillar, true)
 fmod_studio_system_set_parameter_by_name("singer", voices, true)
 roomname = string_letters(room_get_name(room))
 var _isSecret = string_pos("secret", roomname) > 0
-
 if isSecret != _isSecret
 {
     isSecret = _isSecret
@@ -62,28 +57,22 @@ if isSecret != _isSecret
         fmod_studio_event_instance_set_timeline_position(secretInst, _pos)
     }
 }
-
 var q = 0
-
-if musicInst != -4
+if musicInst != noone
     q = fmod_studio_event_instance_get_timeline_position(musicInst)
-if isSecret && secretInst != -4
+if isSecret && secretInst != noone
     q = fmod_studio_event_instance_get_timeline_position(secretInst)
-
 global.songCurInf.pos = q
-var s = -4
-
-if musicInst != -4
+var s = noone
+if musicInst != noone
     s = FMODget_path(musicInst)
-if isSecret && secretInst != -4
+if isSecret && secretInst != noone
     s = FMODget_path(secretInst)
-
 currentMusic = s
 fmod_studio_event_instance_set_paused(escapeInst, isSecret)
-
-if musicInst != -4
+if musicInst != noone
     fmod_studio_event_instance_set_paused(musicInst, isSecret || FMODevent_isplaying(escapeInst) || pauseMusic)
-if ambienceInst != -4
+if ambienceInst != noone
     fmod_studio_event_instance_set_paused(ambienceInst, isSecret || FMODevent_isplaying(escapeInst) || pauseMusic)
-if secretInst != -4
+if secretInst != noone
     fmod_studio_event_instance_set_paused(secretInst, !isSecret || pauseMusic)

@@ -1,4 +1,4 @@
-if (buffer == 0)
+if buffer == 0
 {
     getMenu_input()
     var m = menus[currentmenu]
@@ -251,5 +251,4 @@ if (buffer == 0)
         }
     }
 }
-
 buffer = approach(buffer, 0, 1)

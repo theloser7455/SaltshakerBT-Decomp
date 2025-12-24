@@ -1,6 +1,6 @@
 init_input()
 global.gamepadConnected = false
-global.gamepadCurrent = -4
+global.gamepadCurrent = noone
 
 global.gamepadDeadzones = {}
 ini_open(working_directory + "options.ini")

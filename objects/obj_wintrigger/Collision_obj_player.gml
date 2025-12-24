@@ -4,7 +4,7 @@ if global.escape.active == true
     with obj_player
     {
         vsp = 0
-        state = -4
+        state = noone
         sprite_index = spr_player_lookdoor
         image_index = 0
         FMODstopAll()

@@ -5,7 +5,6 @@ function scr_player_parry()
     image_speed = 0.4
     hsp = movespeed * xscale
     movespeed = approach(movespeed, 0, 0.5)
-    
     if animation_end()
     {
         state = states.normal

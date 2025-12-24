@@ -51,8 +51,7 @@ function scr_enemy_thrown()
 			if (place_meeting(x + (hsp * 2) + xscale, y + (vsp * 2), other))
 			{
 			    var _destroy = true
-			    
-			    if (_destroy)
+			    if _destroy
 			        instance_destroy(other)
 			}
         }

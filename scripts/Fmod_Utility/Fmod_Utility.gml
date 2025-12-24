@@ -15,7 +15,6 @@ function FMODcreate_event(_path)
 	array_push(global.FMOD_existingEvents, _inst)
 	return _inst
 }
-
 function FMODget_eventLength(_path)
 {
     var _desc = fmod_studio_system_get_event(_path)

@@ -3,7 +3,6 @@ function scr_player_normal()
     get_input()
     hsp = movespeed * xscale
     var move = key_right + key_left
-    
     if sprite_index == spr_player_move
     {
         if ((floor(image_index) == 3 || floor(image_index) == 8) && buffers.step <= 0)
@@ -13,7 +12,6 @@ function scr_player_normal()
 			create_particleStatic(spr_cloudeffect, x, y + 42, 1, 1)
         }
     }
-    
     if move != 0
     {
         if sprite_index != spr_player_move && sprite_index != spr_player_land2 && sprite_index != spr_player_machslideend && sprite_index != spr_player_littledanceydance
@@ -21,12 +19,9 @@ function scr_player_normal()
 			image_index = 0
 			sprite_index = spr_player_move
         }
-        
         if sprite_index != spr_player_littledanceydance
 			image_speed = movespeed / 15
-        
         xscale = move
-        
         if !place_meeting(x + xscale, y, obj_solid)
         {
 			movespeed = approach(movespeed, 6, 0.5)
@@ -34,13 +29,10 @@ function scr_player_normal()
         else
         {
 			movespeed = approach(movespeed, 0, 0.67)
-			
 			if sprite_index != spr_player_littledanceydance
 			    image_speed = 0.1
         }
-        
         buffers.step--
-        
         if animation_end() && sprite_index == spr_player_land2
         {
 			image_index = 0
@@ -58,7 +50,6 @@ function scr_player_normal()
         if sprite_index != spr_player_idle && sprite_index != spr_player_idleanim1 && sprite_index != spr_player_idleanim2 && sprite_index != spr_player_land && sprite_index != spr_player_machslideend && sprite_index != spr_player_littledanceydance
         {
 			image_speed = movespeed / 15
-			
 			if movespeed == 0
 			{
 			    image_index = 0
@@ -67,10 +58,8 @@ function scr_player_normal()
 			    buffers.idle = irandom_range(120, 240)
 			}
         }
-        
         movespeed = approach(movespeed, 0, 0.67)
         buffers.idle--
-        
         if (buffers.idle <= 0)
         {
 			buffers.idle = irandom_range(120, 240)
@@ -80,7 +69,6 @@ function scr_player_normal()
 			if chance(0.25)
 			    fmod_studio_event_instance_start(soundsOk)
         }
-        
         if animation_end() && sprite_index == spr_player_idleanim1 || sprite_index == spr_player_idleanim2
         {
 			image_index = 0
@@ -97,7 +85,6 @@ function scr_player_normal()
 			sprite_index = spr_player_idle
         }
     }
-	
     if key_taunt
     {
         buffers.breakdanceheld++
@@ -111,7 +98,6 @@ function scr_player_normal()
 			sprite_index = spr_player_idle
         image_speed = 0.35
     }
-    
     if (buffers.breakdanceheld > 10)
     {
         breakdancespeed = approach(breakdancespeed, 0.6, 0.005)
@@ -119,10 +105,9 @@ function scr_player_normal()
 			sprite_index = spr_player_littledanceydance
         image_speed = breakdancespeed
     }
-    
     if breakdancespeed > 0.5
     {
-        if breakdanceID == -4
+        if breakdanceID == noone
         {
 			with instance_create_depth(x, y, 3, obj_beatbox)
 			{
@@ -131,7 +116,7 @@ function scr_player_normal()
 			}
         }
         if !instance_exists(breakdanceID)
-			breakdanceID = -4
+			breakdanceID = noone
         if (buffers.notes <= 0)
         {
 			buffers.notes = 10
@@ -150,7 +135,6 @@ function scr_player_normal()
         sprite_index = spr_player_fall
         state = states.jump
     }
-	
     if jumpBuffer && coyote_time
     {
         jumpBuffer = false
@@ -162,7 +146,6 @@ function scr_player_normal()
         jumpstop = false
         FMODevent_oneshot("event:/Sfx/Player/jump", x, y)
     }
-	
     if key_down && grounded
     {
         image_speed = 0.35
@@ -170,7 +153,6 @@ function scr_player_normal()
         sprite_index = spr_player_crouchstart
         state = states.crouch
     }
-	
     if key_attack && !place_meeting(x + xscale, y, obj_solid)
     {
         create_particleStatic(spr_grabcloud, x, y, xscale, 1)
@@ -179,7 +161,6 @@ function scr_player_normal()
         image_index = 0
         state = states.mach2
     }
-	
     doTaunt()
     doGrab()
 }

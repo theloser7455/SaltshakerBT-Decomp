@@ -8,14 +8,13 @@ if place_meeting(x, y, obj_player) && cutscene == false && global.escape.active
     {
         targetRoom = other.targetRoom
         door = other.targetDoor
-        state = -4
+        state = noone
         sprite_index = spr_player_spinout
         image_speed = 0.35
     }
     sprite_index = spr_partydooropen
     image_index = 0
 }
-
 if cutscene == true
 {
     with obj_player

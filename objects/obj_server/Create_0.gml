@@ -15,13 +15,13 @@ notifs = ds_list_create()
 connections = ds_list_create()
 
 network_send_packetServ = function(_bufferId, _size) {
-    if global.client == -4
+    if global.client == noone
     {
         var i = ds_list_size(connections) 
         while i--
 			network_send_packet(ds_list_find_value(connections, i), _bufferId, _size)
     }
-    if global.server == -4
+    if global.server == noone
         network_send_packet(global.client, _bufferId, _size)
 }
 

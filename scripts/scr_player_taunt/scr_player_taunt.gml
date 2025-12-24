@@ -5,7 +5,6 @@ function scr_player_taunt()
     get_input()
     image_speed = 0
     tauntTimer--
-    
     if tauntTimer <= 0
     {
         state = tauntVars.state

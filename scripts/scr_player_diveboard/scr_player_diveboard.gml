@@ -4,7 +4,6 @@ function scr_player_diveboard()
     hsp = 0
     image_speed = 0.35
     sprite_index = spr_player_divingboard
-    
     if animation_end()
     {
         movespeed = diveboardSaved.movespeed

@@ -14,7 +14,7 @@ bacon =
     y: 736,
     smokeIndex: 0
 }
-screenSprite = -4
+screenSprite = noone
 pauseMusic = FMODcreate_event("event:/Music/General/pause")
 vinylSND = FMODcreate_event("event:/Sfx/vinyl")
 selected = 0
@@ -67,7 +67,6 @@ function doPause()
 			break
     }
 }
-
 function doUnpause()
 {
     instance_activate_all()
@@ -82,7 +81,6 @@ function doUnpause()
     }
     active = false
 }
-
 var _resume = 
 {
     option: "pause_resume",
@@ -151,8 +149,8 @@ var _exitlevel =
 			        instance_destroy(obj_backtohub)
 			    instance_create_depth(x, y, -3, obj_backtohub)
 			}
-			global.level = -4
-			global.resetRoom = -4
+			global.level = noone
+			global.resetRoom = noone
         }
     }
 }

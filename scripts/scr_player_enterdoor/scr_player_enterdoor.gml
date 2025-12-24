@@ -4,25 +4,21 @@ function scr_player_enterdoor()
     image_speed = 0.35
     hsp = 0
     vsp = 0
-    
     if place_meeting(x, y, obj_door)
     {
         var _door = instance_place(x, y, obj_door)
         var _tX = _door.x + (_door.sprite_width / 2)
         x = approach(x, _tX, 6)
     }
-    
     if place_meeting(x, y, obj_levelgate)
     {
         var _door = instance_place(x, y, obj_levelgate)
         var _tX = _door.x
         x = approach(x, _tX, 6)
     }
-    
     if animation_end()
     {
         image_index = image_number - 1
-        
         if sprite_index == spr_player_downbox || sprite_index == spr_player_upbox
         {
 			if !instance_exists(obj_fadeout)
@@ -33,14 +29,12 @@ function scr_player_enterdoor()
         }
     }
 }
-
 function scr_player_walkfront()
 {
     get_input()
     image_speed = 0.35
     hsp = 0
     vsp = 0
-    
     if animation_end()
     {
         if sprite_index == spr_player_walkfront
@@ -50,7 +44,6 @@ function scr_player_walkfront()
 			    sprite_index = spr_player_gateslam
 			    image_index = 0
 			    shake_camera(25)
-			    
 			    with instance_place(x, y, obj_exitgate)
 			    {
 			        image_index = 0

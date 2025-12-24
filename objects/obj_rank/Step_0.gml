@@ -75,8 +75,8 @@ if canContinue
         }
         
         room_goto(avocadoMenu)
-        global.level = -4
-        global.resetRoom = -4
+        global.level = noone
+        global.resetRoom = noone
         fmod_studio_event_instance_stop(music, FMOD_STUDIO_STOP_MODE.IMMEDIATE)
         instance_destroy()
     }

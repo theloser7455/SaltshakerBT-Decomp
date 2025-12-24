@@ -42,7 +42,7 @@ function scr_compileIconText(_string)
 		return new _keyFunc(false, " ")
 	var _inputKey = [global.inputMap[$ $"Inputs_Player1_{_inputFind}Key"][0], global.inputMap[$ $"Inputs_Player1_{_inputFind}Pad"][0]]
 	var _inputKeyString = chr(_inputKey[_prioritizeInput])
-	var _key = -4
+	var _key = noone
 	if _prioritizeInput == 0
 	{
 		switch _inputKey[0]

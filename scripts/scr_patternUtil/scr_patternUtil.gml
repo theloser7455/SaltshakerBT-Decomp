@@ -1,7 +1,6 @@
 global.patternColors = shader_get_sampler_index(shd_pattern, "tex_setColors")
 global.patternUVs = shader_get_uniform(shd_pattern, "tex_colorsUV")
 global.patternTexel = shader_get_uniform(shd_pattern, "tex_height")
-
 function pattern_draw(_sprite, _index, _x, _y, _xscale, _yscale, _rot, _col, _alpha, _pattern = global.patternSpr, _patternColors = spr_playerPatColors, plrpal = obj_player.spr_palette, plrpalindex = obj_player.palIndex)
 {
     if _pattern != -1

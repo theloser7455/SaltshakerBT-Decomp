@@ -1,7 +1,7 @@
-if target == -4
+if target == noone
 {
     var _found = false
-    var _objPl = -4
+    var _objPl = noone
     for (var i = 0; i < instance_number(obj_onlinePlayer); i++)
     {
         var obj = instance_find(obj_onlinePlayer, i)

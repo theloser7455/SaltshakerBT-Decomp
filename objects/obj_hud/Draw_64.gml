@@ -7,7 +7,6 @@ if !ds_list_empty(collectVis)
 			draw_sprite_ext(sprite_index, 4, x, y, 1, 1, 0, c_white, 1)
     }
 }
-
 with kettle
 {
     draw_sprite(spr_kettleScore, 0, kx, ky)
@@ -62,7 +61,6 @@ with kettle
     var yo = sprite_get_yoffset(spr_hudRanksFill)
     draw_sprite_part_ext(spr_hudRanksFill, rankindex, 0, top, sprite_get_width(spr_hudRanksFill), sprite_get_height(spr_hudRanksFill) - top, (rankX + 160) - xo, (rankY - yo) + top, rankScale, rankScale, c_white, 1)
 }
-
 with combometer
 {
     var _perc = global.combo.timer / 60
@@ -124,7 +122,6 @@ with combometer
         if global.combo.amt == 0
 			state = -1
     }
-    
     draw_sprite(spr_combo_table, 0, x, y)
     catvsp += 0.2
     caty += catvsp
@@ -134,7 +131,6 @@ with combometer
         catvsp = -4
         y += 6
     }
-    
     draw_sprite(spr_combo_vase, global.combo.dropped, (x - 100) + vaseoffset, y - 21)
     catx = lerp(catx, (x - 40) + (128 * _perc), 0.15)
     draw_sprite(spr_combo_cat, 0, catx, caty)
@@ -143,29 +139,24 @@ with combometer
     draw_text(x - 12, y + 40, global.combo.amt)
     vaseoffset = approach(vaseoffset, 0, 15)
 }
-
 with tv
 {
     if sprite_index != spr_tv_turnon
         draw_sprite(spr_tv_bg, 0, x, y)
-    
     pal_swap_set(obj_player.spr_palette, obj_player.palIndex, false)
     draw_sprite(sprite_index, image_index, x, y)
     shader_reset()
     pattern_draw(sprite_index, image_index, x, y, 1, 1, 0, c_white, 1, global.patternSpr, spr_playerPatColors)
-    
     if state == states.expr
         draw_sprite(spr_tv_switch, switchindex, x, y)
 }
-
 draw_set_font(global.smallfont)
 draw_set_color(c_white)
 draw_set_halign(fa_right)
 var _xx = SCREEN_WIDTH - 32
 var _yy = SCREEN_HEIGHT - 32
 global.save_timer++
-if global.level != -4
+if global.level != noone
     global.level_timer++
-
 draw_text(_xx, _yy, calculateTime(global.save_timer))
 draw_text(_xx, _yy - 16, calculateTime(global.level_timer))

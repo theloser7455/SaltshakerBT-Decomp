@@ -7,25 +7,20 @@ function scr_player_machturn()
     movespeed = approach(movespeed, 0, 0.4)
     buffers.afterimageBlur = approach(buffers.afterimageBlur, 0, 1)
     buffers.dashcloud--
-    
     if (buffers.dashcloud <= 0 && grounded)
     {
         buffers.dashcloud = 12
         create_particleStatic(spr_dashcloud1, x, y, xscale, 1)
     }
-    
     if (buffers.afterimageBlur == 0)
     {
         buffers.afterimageBlur = 3
         create_blur_effect(sprite_index, image_index, x, y, xscale)
     }
-    
     if animation_end() && sprite_index == spr_player_mach2turn
         sprite_index = spr_player_mach2turnfall
-    
     if animation_end() && sprite_index == spr_player_mach3turn
         sprite_index = spr_player_mach3turnfall
-    
     if grounded && animation_end()
     {
         if sprite_index == spr_player_mach2turn
@@ -45,7 +40,6 @@ function scr_player_machturn()
 			image_index = 0
         }
     }
-    
     if grounded
     {
         if sprite_index == spr_player_mach2turnfall

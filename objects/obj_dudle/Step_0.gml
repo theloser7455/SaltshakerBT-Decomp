@@ -7,7 +7,7 @@ if place_meeting(x, y, obj_player) && cutscene == false
         FMODevent_oneshot("event:/Sfx/General/Level/Progression/enterpage", x, y)
         targetRoom = other.targetRoom
         door = "DOODLE"
-        state = -4
+        state = noone
         sprite_index = spr_player_spinout
         image_speed = 0.35
     }

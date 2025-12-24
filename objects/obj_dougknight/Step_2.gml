@@ -50,5 +50,5 @@ if hitbox == true
 else if instance_exists(hitboxInst)
 {
     instance_destroy(hitboxInst)
-    hitboxInst = -4
+    hitboxInst = noone
 }

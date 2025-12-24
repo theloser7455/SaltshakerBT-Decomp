@@ -1,6 +1,6 @@
 #macro doGroundpoundCheck ((key_down2 && global.dirGround) || (key_groundpound2 && !global.dirGround))
 #macro doSuperjumpCheck ((key_up && global.dirGround) || (key_superjump && !global.dirGround))
-function hurt_player(plr = -4)
+function hurt_player(plr = noone)
 {
     with obj_player
     {
@@ -12,7 +12,7 @@ function hurt_player(plr = -4)
         global.combo.timer = clamp(global.combo.timer, 0, 60)
         i_frame = 100
         var sameFace = true
-        if (plr != -4)
+        if (plr != noone)
         {
 			var facing = sign(x - plr.x)
 			sameFace = xscale == facing
@@ -49,7 +49,7 @@ function doBump(bump)
     return false;
 }
 
-function generalReset()
+function generalReset() //Basically create again
 {
     instance_destroy(obj_comboTitle)
     ds_list_clear(global.saveroom)

@@ -3,7 +3,7 @@ if other.grounded && other.key_up && other.state != states.enterdoor && other.st
     with other
     {
         vsp = 0
-        state = -4
+        state = noone
         sprite_index = spr_player_lookdoor
         image_index = 0
         FMODstopAll()

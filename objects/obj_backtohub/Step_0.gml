@@ -1,5 +1,5 @@
 image_alpha = approach(image_alpha, 0, 0.05)
-if obj_player.state == -4
+if obj_player.state == noone
 {
     if start
     {

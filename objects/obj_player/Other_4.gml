@@ -3,10 +3,10 @@ if instance_exists(doorOBJ)
 {
     if hallway == 2
     {
-        var _hallway = -4
+        var _hallway = noone
         with doorOBJ
 			_hallway = instance_place(x, y, obj_hallway_vertical)
-        if _hallway == -4
+        if _hallway == noone
 			exit
         var _hallway2Size = _hallway.sprite_width
         if state == states.climbwall

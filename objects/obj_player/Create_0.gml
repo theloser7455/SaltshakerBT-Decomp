@@ -34,7 +34,7 @@ if !variable_global_exists("saveroom")
     global.level_timer = 0
     global.save_timer = 0
     global.debug = false
-    global.level = -4
+    global.level = noone
 }
 
 enum states 
@@ -91,8 +91,8 @@ movespeed = 0
 xscale = 1
 xs = 1
 ys = 1
-poletreeID = -4
-chargeeffect = -4
+poletreeID = noone
+chargeeffect = noone
 buffers = {}
 buffers.step = 0
 buffers.bigdashcloud = 0
@@ -104,7 +104,7 @@ buffers.crazyothereffect = 0
 buffers.breakdanceheld = 0
 buffers.notes = 0
 breakdancespeed = 0
-breakdanceID = -4
+breakdanceID = noone
 jumpBuffer = false
 slapBuffer = false
 flash = false
@@ -140,10 +140,10 @@ tauntVars =
     image_speed: image_speed
 }
 tauntTimer = 0
-freefallsmash = -4
+freefallsmash = noone
 crouchslip = 0
 wallgrab = 0
-enemyID = -4
+enemyID = noone
 i_frame = 0
 coyote_time = 0
 mach4mode = false

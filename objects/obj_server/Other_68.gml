@@ -1,5 +1,4 @@
 var n_id = ds_map_find_value(async_load, "id")
-
 if (n_id == global.server) {
     var t = ds_map_find_value(async_load, "type")
     switch (t)
@@ -8,7 +7,6 @@ if (n_id == global.server) {
             var sock = ds_map_find_value(async_load, "socket")
             ds_list_add(connections, sock)
             break
-			
         case network_type_disconnect:
             var sock = ds_map_find_value(async_load, "socket")
             with obj_onlinePlayer
@@ -24,7 +22,6 @@ if (n_id == global.server) {
             break
     }
 }
-
 if (ds_map_find_value(async_load, "type") == network_type_data) {
     var buff = ds_map_find_value(async_load, "buffer");
     if (buffer_exists(buff)) {
@@ -121,7 +118,7 @@ if (ds_map_find_value(async_load, "type") == network_type_data) {
                 }
                 break
         }
-        if global.client == -4
+        if global.client == noone
         {
             var _serverBuff = buffer_create(1, buffer_grow, 1)
             buffer_seek(_serverBuff, buffer_seek_start, 0)

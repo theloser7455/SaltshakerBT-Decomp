@@ -1,11 +1,9 @@
 draw_set_color(c_white)
 draw_sprite_tiled_ext(spr_optionsBG, 0, BGX, BGY, 1, 1, c_white, 1)
-
 for (var i = 0; i < array_length(backgrounds); i++)
 {
     draw_sprite_tiled_ext(spr_optionsBG, backgrounds[i].index, BGX, BGY, 1, 1, c_white, backgrounds[i].alpha)
-    
-    if (backgrounds[i].menu != [option.main])
+    if backgrounds[i].menu != [option.main]
     {
         var _alpha = 0
         for (var q = 0; q < array_length(backgrounds[i].menu); q++)
@@ -19,7 +17,6 @@ for (var i = 0; i < array_length(backgrounds); i++)
         backgrounds[i].alpha = 1
     }
 }
-
 var m = menus[currentmenu]
 var opt = m.options
 var _length = array_length(opt)

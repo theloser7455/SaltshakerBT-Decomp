@@ -6,14 +6,14 @@ music =
     secret: "",
     ambience: ""
 }
-musicInst = -4
-secretInst = -4
-ambienceInst = -4
+musicInst = noone
+secretInst = noone
+ambienceInst = noone
 isSecret = false
 lock = false
 panicStart = false
 playingSecret = false
-func = -4
+func = noone
 monolith = FMODcreate_event("event:/Music/General/monolith")
 escapeInst = FMODcreate_event("event:/Music/General/escape")
 pillar = 0
@@ -25,24 +25,24 @@ pauseMusic = false
 
 stop_music = function()
 {
-    if musicInst != -4
+    if musicInst != noone
     {
         fmod_studio_event_instance_stop(musicInst, FMOD_STUDIO_STOP_MODE.IMMEDIATE)
         fmod_studio_event_instance_release(musicInst)
     }
-    if secretInst != -4
+    if secretInst != noone
     {
         fmod_studio_event_instance_stop(secretInst, FMOD_STUDIO_STOP_MODE.IMMEDIATE)
         fmod_studio_event_instance_release(secretInst)
     }
-    if ambienceInst != -4
+    if ambienceInst != noone
     {
         fmod_studio_event_instance_stop(ambienceInst, FMOD_STUDIO_STOP_MODE.IMMEDIATE)
         fmod_studio_event_instance_release(ambienceInst)
     }
-    musicInst = -4
-    secretInst = -4
-    ambienceInst = -4
+    musicInst = noone
+    secretInst = noone
+    ambienceInst = noone
     music = 
     {
         regular: "",
@@ -63,7 +63,7 @@ add_music = function(_music, _secret, _ambience, _funct = function()
     func = _funct
 }
 
-ds_map_add(musicDetails, test_1, new add_music("event:/Music/W1/entrance", "event:/Music/W1/Monolith Mangrove/mangrovesecret", -4))
+ds_map_add(musicDetails, test_1, new add_music("event:/Music/W1/entrance", "event:/Music/W1/Monolith Mangrove/mangrovesecret", noone))
 ds_map_add(musicDetails, mangrove_1, new add_music("event:/Music/W1/Monolith Mangrove/mangrove", "event:/Music/W1/Monolith Mangrove/mangrovesecret", "event:/Ambience/mangrove", function()
 {
     var _s = 0
@@ -71,10 +71,10 @@ ds_map_add(musicDetails, mangrove_1, new add_music("event:/Music/W1/Monolith Man
         _s = 1
     fmod_studio_event_instance_set_parameter_by_name(musicInst, "state", _s)
 }))
-ds_map_add(musicDetails, hotel_entrance, new add_music("event:/Music/W1/hub", -4, -4))
-ds_map_add(musicDetails, hotel_reception, new add_music("event:/Music/W1/hub", -4, -4))
-ds_map_add(musicDetails, hotel_1, new add_music("event:/Music/W1/hub", -4, -4))
-ds_map_add(musicDetails, city_1, new add_music("event:/Music/W1/Shell City/city", -4, -4))
-ds_map_add(musicDetails, beer_1, new add_music("event:/Music/W1/Wasted Shores/shores", -4, -4))
-ds_map_add(musicDetails, milkshek_1, new add_music("event:/Music/W2/Snowshake Peaks/milkshek", -4, -4))
-ds_map_add(musicDetails, castle_1, new add_music("event:/Music/W2/Castle Pumpkinstein/castle", -4, -4))
+ds_map_add(musicDetails, hotel_entrance, new add_music("event:/Music/W1/hub", noone, noone))
+ds_map_add(musicDetails, hotel_reception, new add_music("event:/Music/W1/hub", noone, noone))
+ds_map_add(musicDetails, hotel_1, new add_music("event:/Music/W1/hub", noone, noone))
+ds_map_add(musicDetails, city_1, new add_music("event:/Music/W1/Shell City/city", noone, noone))
+ds_map_add(musicDetails, beer_1, new add_music("event:/Music/W1/Wasted Shores/shores", noone, noone))
+ds_map_add(musicDetails, milkshek_1, new add_music("event:/Music/W2/Snowshake Peaks/milkshek", noone, noone))
+ds_map_add(musicDetails, castle_1, new add_music("event:/Music/W2/Castle Pumpkinstein/castle", noone, noone))

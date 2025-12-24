@@ -1,1 +1,1 @@
-enemy_inst = -4
+enemy_inst = noone

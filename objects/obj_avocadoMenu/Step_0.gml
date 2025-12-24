@@ -49,7 +49,7 @@ switch scene
 			    hsp = 0
 			    state = states.enterdoor
 			}
-			global.level = -4
+			global.level = noone
 			global.resetRoom = _rm
 			if !instance_exists(obj_fadeout)
 			    instance_create_depth(0, 0, 0, obj_fadeout)

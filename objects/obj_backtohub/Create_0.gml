@@ -5,10 +5,10 @@ with obj_player
 {
     hsp = 0
     vsp = 0
-    state = -4
+    state = noone
     x = backtohubX - 16
     y = backtohubY
-    obj_camera.state = -4
+    obj_camera.state = noone
     obj_camera.camera.x = backtohubX
     obj_camera.camera.y = backtohubY - 50
     y = backtohubY - (SCREEN_HEIGHT * 1.4)

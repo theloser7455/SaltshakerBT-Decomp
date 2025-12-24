@@ -13,7 +13,7 @@ else if (_et == "gamepad lost") {
 	if global.gamepadConnected == true
 	{
 		global.gamepadConnected = false
-		global.gamepadCurrent = -4
+		global.gamepadCurrent = noone
 		show_debug_message($"Gamepad at slot {_padIndx} has disconnected.")
 	}
 }

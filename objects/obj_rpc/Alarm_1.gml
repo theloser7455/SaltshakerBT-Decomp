@@ -10,7 +10,7 @@ else if global.collect >= global.Brank
     _rank = "B"
 else if global.collect >= global.Crank
     _rank = "C"
-if global.level != -4
+if global.level != noone
 {
     _state = string_concat(calculateTime(global.level_timer), " | Score: ", global.collect, " | Combo: ", global.combo.amt, " (", global.combo.dropped ? "Non P-Rank)" : "P-Rank)", " | Rank: ", _rank)
     switch global.level

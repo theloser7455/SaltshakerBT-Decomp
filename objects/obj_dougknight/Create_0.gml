@@ -5,4 +5,4 @@ spr_stun = spr_doug_stun
 spr_scared = spr_doug_scared
 spr_dead = spr_doug_dead
 hitbox = true
-hitboxInst = -4
+hitboxInst = noone
